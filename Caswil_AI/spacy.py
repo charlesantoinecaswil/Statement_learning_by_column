@@ -12,6 +12,7 @@ import random
 import pandas as pd
 import pickle
 from spacy.pipeline import TextCategorizer
+import os
 
 
 
@@ -251,10 +252,10 @@ class column_finder():
 
 
 
-path_output = 'C:\\Users\\Charles-Antoine Pare\\Documents\\AI_Package_Ratio\\AI_Package_Ratio\\app\\result'
-path_output = '..\\Data\\result'
-xml_path = '..\\Data\\xml'
-json_path = '..\\Saved_dict\\tt.pkl'
+
+path_output = 'Data\\result'
+xml_path = 'Data\\xml'
+json_path = 'Saved_dict\\tt.pkl'
 User = column_finder(path_output, xml_path,json_path)
 a = User.create_dictionnary()
 User.return_sentence_pattern('')
