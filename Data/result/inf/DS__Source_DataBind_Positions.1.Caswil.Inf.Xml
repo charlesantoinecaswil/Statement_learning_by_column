@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<caswilxml xmlns:ns0="http://Caswil">
+<statement>DS__Source_DataBind_Positions.Caswil.ST.Xml</statement>
+<parameters>
+</parameters>
+<sources>
+<source CRC="0" lastWritten="1920-06-17T11:33:491" reachable="false" originalValue="..\DS_DataBind*{last}.xls*{Positions}" FileNotFound="true"></source>
+<source CRC="0" lastWritten="1920-06-17T11:33:49128" reachable="false" originalValue="..\DS_DataBind*{last}.xls*{Positions}" FileNotFound="true"></source>
+</sources>
+</caswilxml>

@@ -1,0 +1,335 @@
+<?xml version="1.0"?>
+<caswilxml xmlns:ns0="http://Caswil">
+<statement lastWritten="2019-02-01T14:25:21011">
+<sources>
+<source name="Positions" description="" stStyle="PositionsStyle">
+<connection filename="xml\DS_Positions_Distinct.Caswil.ST.Xml" type="Statement" header="" format="" headerIncluded="True" previewSize="0" previewMode="False" includeFilename="False" includeRowIndex="False" />
+</source>
+<source name="Rating" description="">
+<connection filename="xml\DS__Source_RiskDashboard_SecRpt_Last.Caswil.ST.Xml" type="Statement" header="" format="" headerIncluded="True" previewSize="0" previewMode="False" includeFilename="False" includeRowIndex="False" />
+</source>
+</sources>
+<columns>
+<column name="Instrument_Description" visible="">
+<block  value="[Positions].[Instrument_Description]" display="[Positions].[Instrument_Description]"></block>
+</column>
+<column name="Security_No." visible="">
+<block  value="[Positions].[Security_No.]" display="[Positions].[Security_No.]"></block>
+<block  value="[Rating].[ADP_ID]" display="[Rating].[ADP_ID]"></block>
+
+</column>
+<column name="FI_Type" visible="">
+<block  type="Switch" >
+<block  type="Calculate" >
+<block  type="Calculate" >
+<block  type="Find" >
+<block  value="[Positions].[Instrument_Description]" display="[Positions].[Instrument_Description]"></block>
+<block  type="Value"  value=" GOVT " display=" GOVT "></block>
+<block  type="Value"  value="Count" display="Count"></block>
+</block>
+<block  type="value"  value="+" display="+"></block>
+<block  type="Find" >
+<block  value="[Positions].[Instrument_Description]" display="[Positions].[Instrument_Description]"></block>
+<block  type="Value"  value=" GOVERNMENT " display=" GOVERNMENT "></block>
+<block  type="Value"  value="Count" display="Count"></block>
+</block>
+</block>
+<block  type="value"  value="+" display="+"></block>
+<block  type="Find" >
+<block  value="[Positions].[Instrument_Description]" display="[Positions].[Instrument_Description]"></block>
+<block  type="Value"  value=" TREASURY " display=" TREASURY "></block>
+<block  type="Value"  value="Count" display="Count"></block>
+</block>
+</block>
+<block  type="Value"  value="=" display="="></block>
+<block  type="Value"  value="0" iValue="0" display="0"></block>
+<block  type="Switch" >
+<block  value="[Positions].[Sector]" display="[Positions].[Sector]"></block>
+<block  type="value"  value="=" display="="></block>
+<block  type="Value"  value="Preferreds" display="Preferreds"></block>
+<block  type="Value"  value="Preferreds" display="Preferreds"></block>
+<block  type="Switch" >
+<block  type="Find" >
+<block  value="[Out].[Instrument_Description]" display="[Out].[Instrument_Description]"></block>
+<block  type="Value"  value=" GIC " display=" GIC "></block>
+<block  type="Value"  value="Count" display="Count"></block>
+</block>
+<block  type="Value"  value="&#62;" display="&#62;"></block>
+<block  type="Value"  value="0" iValue="0" display="0"></block>
+<block  type="Value"  value="GIC" display="GIC"></block>
+<block  type="Switch" >
+<block  value="[Positions].[Sector]" display="[Positions].[Sector]"></block>
+<block  type="Value"  value="=" display="="></block>
+<block  type="Value"  value="Provincial/State|Local/Municipal|Federal Government" display="Provincial/State|Local/Municipal|Federal Government"></block>
+<block  type="Value"  value="Government" display="Government"></block>
+<block  type="Switch" >
+<block  value="[Positions].[Sector]" display="[Positions].[Sector]"></block>
+<block  type="Value"  value="=" display="="></block>
+<block  type="Value"  value="Corporate|Index Replicating Vehicles|Mutual Funds|Pool Funds" display="Corporate|Index Replicating Vehicles|Mutual Funds|Pool Funds"></block>
+<block  type="Switch" >
+<block  type="Left" >
+<block  value="[Rating].[Credit_Rating]" display="[Rating].[Credit_Rating]"></block>
+<block  type="value"  value="1" iValue="1" display="1"></block>
+</block>
+<block  type="value"  value="=" display="="></block>
+<block  type="Value"  value="A" display="A"></block>
+<block  type="Value"  value="Corporate" display="Corporate"></block>
+<block  type="Switch" >
+<block  type="Find" >
+<block  type="Value"  value="[parameter].[FIAllocation]" display="[parameter].[FIAllocation]"></block>
+<block  type="Value"  value="Corp HY" display="Corp HY"></block>
+<block  type="value"  value="Index" display="Index"></block>
+</block>
+<block  type="Value"  value="&#62;" display="&#62;"></block>
+<block  type="Value"  value="-1" display="-1"></block>
+<block  type="Value"  value="Corp HY" display="Corp HY"></block>
+<block  type="Value"  value="Corporate" display="Corporate"></block>
+</block>
+</block>
+<block  type="Switch" >
+<block  type="Find" >
+<block  value="[Out].[Instrument_Description]" display="[Out].[Instrument_Description]"></block>
+<block  type="Value"  value=" PFD " display=" PFD "></block>
+<block  type="Value"  value="Count" display="Count"></block>
+</block>
+<block  type="Value"  value="&#62;" display="&#62;"></block>
+<block  type="Value"  value="0" iValue="0" display="0"></block>
+<block  type="Value"  value="Preferreds" display="Preferreds"></block>
+<block  type="Switch" >
+<block  type="Find" >
+<block  value="[Out].[Instrument_Description]" display="[Out].[Instrument_Description]"></block>
+<block  type="Value"  value=" PREF" display=" PREF"></block>
+<block  type="Value"  value="Count" display="Count"></block>
+</block>
+<block  type="Value"  value="&#62;" display="&#62;"></block>
+<block  type="Value"  value="0" iValue="0" display="0"></block>
+<block  type="Value"  value="Preferreds" display="Preferreds"></block>
+<block  type="Switch" >
+<block  type="Find" >
+<block  value="[Out].[Instrument_Description]" display="[Out].[Instrument_Description]"></block>
+<block  type="Value"  value=" CORP" display=" CORP"></block>
+<block  type="Value"  value="Count" display="Count"></block>
+</block>
+<block  type="Value"  value="&#62;" display="&#62;"></block>
+<block  type="Value"  value="0" iValue="0" display="0"></block>
+<block  type="Switch" >
+<block  type="Find" >
+<block  type="Value"  value="[parameter].[FIAllocation]" display="[parameter].[FIAllocation]"></block>
+<block  type="Value"  value="Corp HY" display="Corp HY"></block>
+<block  type="value"  value="Index" display="Index"></block>
+</block>
+<block  type="Value"  value="&#62;" display="&#62;"></block>
+<block  type="Value"  value="-1" display="-1"></block>
+<block  type="Value"  value="Corp HY" display="Corp HY"></block>
+<block  type="Value"  value="Corporate" display="Corporate"></block>
+</block>
+<block  type="Switch" >
+<block  type="Left" >
+<block  value="[Rating].[Credit_Rating]" display="[Rating].[Credit_Rating]"></block>
+<block  type="value"  value="1" iValue="1" display="1"></block>
+</block>
+<block  type="value"  value="=" display="="></block>
+<block  type="Value"  value="A" display="A"></block>
+<block  type="Value"  value="Government" display="Government"></block>
+<block  type="Switch" >
+<block  type="Find" >
+<block  type="Value"  value="[parameter].[FIAllocation]" display="[parameter].[FIAllocation]"></block>
+<block  type="Value"  value="Corp HY" display="Corp HY"></block>
+<block  type="value"  value="Index" display="Index"></block>
+</block>
+<block  type="Value"  value="&#62;" display="&#62;"></block>
+<block  type="Value"  value="-1" display="-1"></block>
+<block  type="Value"  value="Corp HY" display="Corp HY"></block>
+<block  type="Value"  value="Corporate" display="Corporate"></block>
+</block>
+</block>
+</block>
+</block>
+</block>
+</block>
+</block>
+</block>
+</block>
+<block  type="Value"  value="Government" display="Government"></block>
+</block>
+</column>
+<column name="Credit_Rating" visible="">
+<block  value="[Rating].[Credit_Rating]" display="[Rating].[Credit_Rating]"></block>
+</column>
+<column name="Issuer" visible="">
+<block  type="Trim" >
+<block  type="Trim" >
+<block  type="Trim" >
+<block  type="Trim" >
+<block  type="Trim" >
+<block  type="Trim" >
+<block  type="ToSplit" >
+<block  type="ToSplit" >
+<block  type="ToSplit" >
+<block  type="ToSplit" >
+<block  type="ToSplit" >
+<block  type="ToSplit" >
+<block  type="ToSplit" >
+<block  type="ToSplit" >
+<block  type="ToSplit" >
+<block  type="ToSplit" >
+<block  type="ToSplit" >
+<block  type="ToSplit" >
+<block  type="ToSplit" >
+<block  type="ToSplit" >
+<block  type="ToSplit" >
+<block  type="ToSplit" >
+<block  type="ToSplit" >
+<block  type="Switch" >
+<block  type="Find" >
+<block  value="[Out].[Instrument_Description]" display="[Out].[Instrument_Description]"></block>
+<block  type="Value"  value="%" display="%"></block>
+<block  type="value"  value="Index" display="Index"></block>
+</block>
+<block  type="Value"  value="&#62;" display="&#62;"></block>
+<block  type="Value"  value="-1" display="-1"></block>
+<block  type="Trim" >
+<block  type="ToSplit" >
+<block  value="[Out].[Instrument_Description]" display="[Out].[Instrument_Description]"></block>
+<block  type="Value"  value="%" display="%"></block>
+<block  type="value"  value="1" iValue="1" display="1"></block>
+</block>
+<block  type="ToSplit" >
+<block  type="ToSplit" >
+<block  value="[Out].[Instrument_Description]" display="[Out].[Instrument_Description]"></block>
+<block  type="Value"  value="%" display="%"></block>
+<block  type="value"  value="1" iValue="1" display="1"></block>
+</block>
+<block  type="value"  value=" "></block>
+<block  type="Calculate" >
+<block  type="Find" >
+<block  type="ToSplit" >
+<block  value="[Out].[Instrument_Description]" display="[Out].[Instrument_Description]"></block>
+<block  type="Value"  value="%" display="%"></block>
+<block  type="value"  value="1" iValue="1" display="1"></block>
+</block>
+<block  type="Value"  value=" "></block>
+<block  type="Value"  value="Count" display="Count"></block>
+</block>
+<block  type="value"  value="+" display="+"></block>
+<block  type="Value"  value="1" iValue="1" display="1"></block>
+</block>
+</block>
+<block  type="Value"  value="End" display="End"></block>
+</block>
+<block  value="[Out].[Instrument_Description]" display="[Out].[Instrument_Description]"></block>
+</block>
+<block  type="Value"  value=" GIC" display=" GIC"></block>
+<block  type="value"  value="1" iValue="1" display="1"></block>
+</block>
+<block  type="Value"  value=" DUE " display=" DUE "></block>
+<block  type="value"  value="1" iValue="1" display="1"></block>
+</block>
+<block  type="Value"  value=" - ANNUAL COMPOUND" display=" - ANNUAL COMPOUND"></block>
+<block  type="value"  value="1" iValue="1" display="1"></block>
+</block>
+<block  type="Value"  value=" SENIOR NOTES" display=" SENIOR NOTES"></block>
+<block  type="value"  value="1" iValue="1" display="1"></block>
+</block>
+<block  type="Value"  value=" SERIAL " display=" SERIAL "></block>
+<block  type="value"  value="1" iValue="1" display="1"></block>
+</block>
+<block  type="Value"  value=" NON-CUM" display=" NON-CUM"></block>
+<block  type="value"  value="1" iValue="1" display="1"></block>
+</block>
+<block  type="Value"  value=" PFD" display=" PFD"></block>
+<block  type="value"  value="1" iValue="1" display="1"></block>
+</block>
+<block  type="Value"  value=" PREFERRED" display=" PREFERRED"></block>
+<block  type="value"  value="1" iValue="1" display="1"></block>
+</block>
+<block  type="Value"  value=" CUM " display=" CUM "></block>
+<block  type="value"  value="1" iValue="1" display="1"></block>
+</block>
+<block  type="Value"  value="CORPORATE BOND" display="CORPORATE BOND"></block>
+<block  type="value"  value="1" display="1"></block>
+</block>
+<block  type="Value"  value=" CL " display=" CL "></block>
+<block  type="value"  value="1" display="1"></block>
+</block>
+<block  type="Value"  value="CUMULATIVE " display="CUMULATIVE "></block>
+<block  type="value"  value="1" display="1"></block>
+</block>
+<block  type="Value"  value=" CORPORATE " display=" CORPORATE "></block>
+<block  type="value"  value="1" display="1"></block>
+</block>
+<block  type="Value"  value=" CDA " display=" CDA "></block>
+<block  type="value"  value="1" display="1"></block>
+</block>
+<block  type="Value"  value=" SR " display=" SR "></block>
+<block  type="value"  value="1" display="1"></block>
+</block>
+<block  type="Value"  value=" SER " display=" SER "></block>
+<block  type="value"  value="1" display="1"></block>
+</block>
+<block  type="Value"  value=" SERIES " display=" SERIES "></block>
+<block  type="value"  value="1" display="1"></block>
+</block>
+<block  type="Value"  value=" "></block>
+<block  type="value"  value="All" display="All"></block>
+</block>
+<block  type="Value"  value="CPN" display="CPN"></block>
+<block  type="value"  value="All" display="All"></block>
+</block>
+<block  type="Value"  value="BOOK ENTRY ONLY" display="BOOK ENTRY ONLY"></block>
+<block  type="value"  value="All" display="All"></block>
+</block>
+<block  type="Value"  value="BOOK ENTRY" display="BOOK ENTRY"></block>
+<block  type="value"  value="All" display="All"></block>
+</block>
+<block  type="Value"  value="RES " display="RES "></block>
+<block  type="value"  value="All" display="All"></block>
+</block>
+<block  type="Value"  value=" "></block>
+<block  type="value"  value="All" display="All"></block>
+</block>
+</column>
+</columns>
+<filters>
+<block  type="Filter" >
+<block  value="[Out].[Instrument_Description]" display="[Out].[Instrument_Description]"></block>
+<block  type="value"  value="&#60;&#62;" display="&#60;&#62;"></block>
+<block  type="value"  value=""></block>
+</block>
+</filters>
+<stStyles>
+	<stStyle name="PositionsStyle">
+		<columns>
+			<column name="Instrument_Description" visible="True">
+<block  value="[In].[Instrument_Description]" display="[In].[Instrument_Description]"></block>
+			</column>
+			<column name="Price_(Security)" visible="True">
+<block  value="[In].[Price_(Security)]" display="[In].[Price_(Security)]"></block>
+			</column>
+			<column name="Security_No." visible="True">
+<block  value="[In].[Security_No.]" display="[In].[Security_No.]"></block>
+			</column>
+			<column name="AssetClass" visible="True">
+<block  value="[In].[AssetClass]" display="[In].[AssetClass]"></block>
+			</column>
+			<column name="Country" visible="True">
+<block  value="[In].[Country]" display="[In].[Country]"></block>
+			</column>
+			<column name="Sector" visible="True">
+<block  value="[In].[Sector]" display="[In].[Sector]"></block>
+			</column>
+			<column name="TacClassification" visible="True">
+<block  value="[In].[TacClassification]" display="[In].[TacClassification]"></block>
+			</column>
+		</columns>
+		<filters>
+<block  type="Filter" >
+<block  value="[Out].[AssetClass]" display="[Out].[AssetClass]"></block>
+<block  type="value"  value="=" display="="></block>
+<block  type="value"  value="Fixed Income" display="Fixed Income"></block>
+</block>
+		</filters>
+	</stStyle>
+</stStyles>
+</statement>
+</caswilxml>

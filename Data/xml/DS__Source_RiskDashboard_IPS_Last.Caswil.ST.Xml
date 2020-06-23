@@ -1,0 +1,257 @@
+<?xml version="1.0"?>
+<caswilxml xmlns:ns0="http://Caswil">
+<statement lastWritten="2018-02-22T09:43:42987">
+<sources>
+<source name="riskDash" description="" stStyle="riskDashStyle">
+<connection filename="[parameter].[dataFolder]\PIM_AssetAllocationRpt*{last}.xls*" type="CSV" header="Portfolio Name" format="" headerIncluded="True" previewSize="0" previewMode="False" includeFilename="True" includeRowIndex="False" />
+</source><source name="PortfolioClass" description="">
+<connection filename="[parameter].[PortfolioClass]" type="CSV" header="PortfolioClass,Min,Max" format="" headerIncluded="False" previewSize="0" previewMode="False" includeFilename="False" includeRowIndex="False" />
+</source></sources>
+<columns>
+<column name="Portfolio_Name" visible="True" groupby="select">
+<block  type="Format" >
+<block  type="Replace" >
+<block  value="[riskDash].[Portfolio_Name]" display="[riskDash].[Portfolio_Name]"></block>
+<block  type="Value"  value="&#38;amp;" display="&#38;amp;"></block>
+<block  type="Value"  value="&#38;" display="&#38;"></block>
+</block>
+<block  type="value"  value="Upper" display="Upper"></block>
+<block  type="Value"  value=""></block>
+</block>
+</column>
+<column name="Portfolio" visible="True" groupby="select">
+<block  value="[riskDash].[Portfolio]" display="[riskDash].[Portfolio]"></block>
+</column>
+<column name="Accounts" visible="True" groupby="select">
+<block  type="Replace" >
+<block  value="[riskDash].[Accounts]" display="[riskDash].[Accounts]"></block>
+<block  type="Value"  value="," display=","></block>
+<block  type="Value"  value="|" display="|"></block>
+</block>
+</column>
+<column name="CashEq_MIN" visible="True" groupby="select">
+<block  value="[riskDash].[CashEq_MIN]" display="[riskDash].[CashEq_MIN]"></block>
+</column>
+<column name="CashEq_TRGT" visible="True" groupby="select">
+<block  value="[riskDash].[CashEq_TRGT]" display="[riskDash].[CashEq_TRGT]"></block>
+</column>
+<column name="CashEq_MAX" visible="True" groupby="select">
+<block  value="[riskDash].[CashEq_MAX]" display="[riskDash].[CashEq_MAX]"></block>
+</column>
+<column name="Equity_MIN" visible="True" groupby="select">
+<block  value="[riskDash].[Equity_MIN]" display="[riskDash].[Equity_MIN]"></block>
+</column>
+<column name="Equity_TRGT" visible="True" groupby="select">
+<block  value="[riskDash].[Equity_TRGT]" display="[riskDash].[Equity_TRGT]"></block>
+</column>
+<column name="Equity_MAX" visible="True" groupby="select">
+<block  value="[riskDash].[Equity_MAX]" display="[riskDash].[Equity_MAX]"></block>
+</column>
+<column name="Fixed_Inc_MIN" visible="True" groupby="select">
+<block  value="[riskDash].[Fixed_Inc_MIN]" display="[riskDash].[Fixed_Inc_MIN]"></block>
+</column>
+<column name="Fixed_Inc_TRGT" visible="True" groupby="select">
+<block  value="[riskDash].[Fixed_Inc_TRGT]" display="[riskDash].[Fixed_Inc_TRGT]"></block>
+</column>
+<column name="Fixed_Inc_MAX" visible="True" groupby="select">
+<block  value="[riskDash].[Fixed_Inc_MAX]" display="[riskDash].[Fixed_Inc_MAX]"></block>
+</column>
+<column name="Alt_MIN" visible="True" groupby="select">
+<block  value="[riskDash].[Alt_MIN]" display="[riskDash].[Alt_MIN]"></block>
+</column>
+<column name="Alt_TRGT" visible="True" groupby="select">
+<block  value="[riskDash].[Alt_TRGT]" display="[riskDash].[Alt_TRGT]"></block>
+</column>
+<column name="Alt_MAX" visible="True" groupby="select">
+<block  value="[riskDash].[Alt_MAX]" display="[riskDash].[Alt_MAX]"></block>
+</column>
+<column name="Foreign_MIN" visible="True" groupby="select">
+<block  value="[riskDash].[Foreign_MIN]" display="[riskDash].[Foreign_MIN]"></block>
+</column>
+<column name="Foreign_TRGT" visible="True" groupby="select">
+<block  value="[riskDash].[Foreign_TRGT]" display="[riskDash].[Foreign_TRGT]"></block>
+</column>
+<column name="Foreign_MAX" visible="True" groupby="select">
+<block  value="[riskDash].[Foreign_MAX]" display="[riskDash].[Foreign_MAX]"></block>
+</column>
+<column name="PM_Code" visible="" groupby="select">
+<block  value="[riskDash].[PM_Code]" display="[riskDash].[PM_Code]"></block>
+</column>
+<column name="JoinCol" visible="">
+<block  type="Replace" >
+<block  value="[riskDash].[Equity_TRGT]" display="[riskDash].[Equity_TRGT]"></block>
+<block  value="[riskDash].[Equity_TRGT]" display="[riskDash].[Equity_TRGT]"></block>
+<block  type="Value"  value="X" display="X"></block>
+</block>
+<block  type="Replace" >
+<block  value="[PortfolioClass].[PortfolioClass]" display="[PortfolioClass].[PortfolioClass]"></block>
+<block  value="[PortfolioClass].[PortfolioClass]" display="[PortfolioClass].[PortfolioClass]"></block>
+<block  type="Value"  value="X" display="X"></block>
+</block>
+
+</column>
+<column name="PortfolioClass" visible="" groupby="first">
+<block  type="Switch" >
+<block  value="[riskDash].[Equity_TRGT]" display="[riskDash].[Equity_TRGT]"></block>
+<block  type="Value"  value="&#62;=" display="&#62;="></block>
+<block  value="[PortfolioClass].[Min]" display="[PortfolioClass].[Min]"></block>
+<block  type="Switch" >
+<block  value="[riskDash].[Equity_TRGT]" display="[riskDash].[Equity_TRGT]"></block>
+<block  type="Value"  value="&#60;=" display="&#60;="></block>
+<block  value="[PortfolioClass].[Max]" display="[PortfolioClass].[Max]"></block>
+<block  value="[PortfolioClass].[PortfolioClass]" display="[PortfolioClass].[PortfolioClass]"></block>
+<block  type="Value"  value=""></block>
+</block>
+<block  type="Value"  value=""></block>
+</block>
+</column>
+</columns>
+<filters>
+<block  type="Filter" >
+<block  value="[Out].[Portfolio_Name]" display="[Out].[Portfolio_Name]"></block>
+<block  type="value"  value="&#60;&#62;" display="&#60;&#62;"></block>
+<block  type="value"  value=""></block>
+</block>
+<block  type="Filter" >
+<block  value="[Out].[Portfolio_Name]" display="[Out].[Portfolio_Name]"></block>
+<block  type="value"  value="&#60;&#62;" display="&#60;&#62;"></block>
+<block  type="value"  value="PORTFOLIO NAME" display="PORTFOLIO NAME"></block>
+</block>
+<block  type="Filter" >
+<block  value="[Out].[Portfolio_Name]" display="[Out].[Portfolio_Name]"></block>
+<block  type="value"  value="&#60;&#62;" display="&#60;&#62;"></block>
+<block  type="value"  value="PIM IPS ASSET ALLOCATION REPORT" display="PIM IPS ASSET ALLOCATION REPORT"></block>
+</block>
+<block  type="Filter" >
+<block  type="Left" >
+<block  value="[Out].[Portfolio_Name]" display="[Out].[Portfolio_Name]"></block>
+<block  type="value"  value="9" iValue="9" display="9"></block>
+</block>
+<block  type="value"  value="&#60;&#62;" display="&#60;&#62;"></block>
+<block  type="value"  value="REPORT AS" display="REPORT AS"></block>
+</block>
+</filters>
+<stStyles>
+	<stStyle name="riskDashStyle">
+		<columns>
+			<column name="Branch_Code" visible="True">
+<block  value="[In].[Branch_Code]" display="[In].[Branch_Code]"></block>
+			</column>
+			<column name="Branch_Name" visible="True">
+<block  value="[In].[Branch_Name]" display="[In].[Branch_Name]"></block>
+			</column>
+			<column name="PM_Code" visible="True">
+<block  value="[In].[PM_Code]" display="[In].[PM_Code]"></block>
+			</column>
+			<column name="Manager" visible="True">
+<block  value="[In].[Manager]" display="[In].[Manager]"></block>
+			</column>
+			<column name="Portfolio" visible="True">
+<block  value="[In].[Portfolio]" display="[In].[Portfolio]"></block>
+			</column>
+			<column name="Portfolio_Name" visible="True">
+<block  type="Switch" >
+<block  value="[In].[Portfolio_Name]" display="[In].[Portfolio_Name]"></block>
+<block  type="value"  value="=" display="="></block>
+<block  type="Left" >
+<block  value="[Last].[Portfolio_Name]" display="[Last].[Portfolio_Name]"></block>
+<block  type="Length" >
+<block  value="[In].[Portfolio_Name]" display="[In].[Portfolio_Name]"></block>
+</block>
+</block>
+<block  type="Map" >
+<block  value="[Last].[Portfolio_Name]" display="[Last].[Portfolio_Name]"></block>
+<block  type="Value"  value="x" display="x"></block>
+</block>
+<block  value="[In].[Portfolio_Name]" display="[In].[Portfolio_Name]"></block>
+</block>
+			</column>
+			<column name="Accounts" visible="True">
+<block  value="[In].[Accounts]" display="[In].[Accounts]"></block>
+			</column>
+			<column name="IPS_date" visible="True">
+<block  value="[In].[IPS_date]" display="[In].[IPS_date]"></block>
+			</column>
+			<column name="Annual_Client_Review_Date" visible="True">
+<block  value="[In].[Annual_Client_Review_Date]" display="[In].[Annual_Client_Review_Date]"></block>
+			</column>
+			<column name="Last_Modified_by" visible="True">
+<block  value="[In].[Last_Modified_by]" display="[In].[Last_Modified_by]"></block>
+			</column>
+			<column name="Last_Modified_Date" visible="True">
+<block  value="[In].[Last_Modified_Date]" display="[In].[Last_Modified_Date]"></block>
+			</column>
+			<column name="CashEq_MIN" visible="True">
+<block  value="[In].[CashEq_MIN]" display="[In].[CashEq_MIN]"></block>
+			</column>
+			<column name="CashEq_TRGT" visible="True">
+<block  value="[In].[CashEq_TRGT]" display="[In].[CashEq_TRGT]"></block>
+			</column>
+			<column name="CashEq_MAX" visible="True">
+<block  value="[In].[CashEq_MAX]" display="[In].[CashEq_MAX]"></block>
+			</column>
+			<column name="%_CashEq" visible="True">
+<block  value="[In].[%_CashEq]" display="[In].[%_CashEq]"></block>
+			</column>
+			<column name="Equity_MIN" visible="True">
+<block  value="[In].[Equity_MIN]" display="[In].[Equity_MIN]"></block>
+			</column>
+			<column name="Equity_TRGT" visible="True">
+<block  value="[In].[Equity_TRGT]" display="[In].[Equity_TRGT]"></block>
+			</column>
+			<column name="Equity_MAX" visible="True">
+<block  value="[In].[Equity_MAX]" display="[In].[Equity_MAX]"></block>
+			</column>
+			<column name="%_Equity" visible="True">
+<block  value="[In].[%_Equity]" display="[In].[%_Equity]"></block>
+			</column>
+			<column name="Fixed_Inc_MIN" visible="True">
+<block  value="[In].[Fixed_Inc_MIN]" display="[In].[Fixed_Inc_MIN]"></block>
+			</column>
+			<column name="Fixed_Inc_TRGT" visible="True">
+<block  value="[In].[Fixed_Inc_TRGT]" display="[In].[Fixed_Inc_TRGT]"></block>
+			</column>
+			<column name="Fixed_Inc_MAX" visible="True">
+<block  value="[In].[Fixed_Inc_MAX]" display="[In].[Fixed_Inc_MAX]"></block>
+			</column>
+			<column name="%_Fixed_Inc" visible="True">
+<block  value="[In].[%_Fixed_Inc]" display="[In].[%_Fixed_Inc]"></block>
+			</column>
+			<column name="Alt_MIN" visible="True">
+<block  value="[In].[Alt_MIN]" display="[In].[Alt_MIN]"></block>
+			</column>
+			<column name="Alt_TRGT" visible="True">
+<block  value="[In].[Alt_TRGT]" display="[In].[Alt_TRGT]"></block>
+			</column>
+			<column name="Alt_MAX" visible="True">
+<block  value="[In].[Alt_MAX]" display="[In].[Alt_MAX]"></block>
+			</column>
+			<column name="%_Alt" visible="True">
+<block  value="[In].[%_Alt]" display="[In].[%_Alt]"></block>
+			</column>
+			<column name="Foreign_MIN" visible="True">
+<block  value="[In].[Foreign_MIN]" display="[In].[Foreign_MIN]"></block>
+			</column>
+			<column name="Foreign_TRGT" visible="True">
+<block  value="[In].[Foreign_TRGT]" display="[In].[Foreign_TRGT]"></block>
+			</column>
+			<column name="Foreign_MAX" visible="True">
+<block  value="[In].[Foreign_MAX]" display="[In].[Foreign_MAX]"></block>
+			</column>
+			<column name="%_Foreign" visible="True">
+<block  value="[In].[%_Foreign]" display="[In].[%_Foreign]"></block>
+			</column>
+			<column name="Portfolio_MV" visible="True">
+<block  value="[In].[Portfolio_MV]" display="[In].[Portfolio_MV]"></block>
+			</column>
+			<column name="Offside_MIN/MAX" visible="True">
+<block  value="[In].[Offside_MIN/MAX]" display="[In].[Offside_MIN/MAX]"></block>
+			</column>
+			<column name="SourcePath" visible="True">
+<block  value="[In].[SourcePath]" display="[In].[SourcePath]"></block>
+			</column>
+		</columns>
+	</stStyle>
+</stStyles>
+</statement>
+</caswilxml>

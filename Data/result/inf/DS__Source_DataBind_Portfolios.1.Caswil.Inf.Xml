@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<caswilxml xmlns:ns0="http://Caswil">
+<statement>DS__Source_DataBind_Portfolios.Caswil.ST.Xml</statement>
+<parameters>
+</parameters>
+<sources>
+<source CRC="0" lastWritten="1920-06-17T11:33:5073" reachable="false" originalValue="..\DS_DataBind*{last}.xls*{Portfolios}" FileNotFound="true"></source>
+</sources>
+</caswilxml>

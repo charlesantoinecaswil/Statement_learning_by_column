@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<caswilxml xmlns:ns0="http://Caswil">
+<statement lastWritten="2018-07-18T09:40:54159">
+<sources>
+<source name="IPS" description="">
+<connection filename="xml\DS__Source_RiskDashboard_IPS_Last_NoDuplicates.Caswil.ST.Xml" type="Statement" header="" format="" headerIncluded="True" previewSize="0" previewMode="False" includeFilename="False" includeRowIndex="False" />
+</source>
+<source name="Exclude" description="" stStyle="DS_Compliance_IPS_Clean_Exclude">
+<connection filename="xml\DS_Compliance_IPS_Excluded.Caswil.ST.Xml" type="Statement" header="" format="" headerIncluded="True" previewSize="0" previewMode="False" includeFilename="False" includeRowIndex="False" />
+</source>
+</sources>
+<columns>
+<column name="Portfolio_Name" visible="">
+<block  value="[IPS].[Portfolio_Name]" display="[IPS].[Portfolio_Name]"></block>
+<block  value="[Exclude].[Portfolio_Name_Exclude]" display="[Exclude].[Portfolio_Name_Exclude]"></block>
+
+</column>
+<column name="Portfolio" visible="">
+<block  value="[IPS].[Portfolio]" display="[IPS].[Portfolio]"></block>
+</column>
+<column name="Accounts" visible="">
+<block  value="[IPS].[Accounts]" display="[IPS].[Accounts]"></block>
+</column>
+<column name="CashEq_MIN" visible="">
+<block  value="[IPS].[CashEq_MIN]" display="[IPS].[CashEq_MIN]"></block>
+</column>
+<column name="CashEq_TRGT" visible="">
+<block  value="[IPS].[CashEq_TRGT]" display="[IPS].[CashEq_TRGT]"></block>
+</column>
+<column name="CashEq_MAX" visible="">
+<block  value="[IPS].[CashEq_MAX]" display="[IPS].[CashEq_MAX]"></block>
+</column>
+<column name="Equity_MIN" visible="">
+<block  value="[IPS].[Equity_MIN]" display="[IPS].[Equity_MIN]"></block>
+</column>
+<column name="Equity_TRGT" visible="">
+<block  value="[IPS].[Equity_TRGT]" display="[IPS].[Equity_TRGT]"></block>
+</column>
+<column name="Equity_MAX" visible="">
+<block  value="[IPS].[Equity_MAX]" display="[IPS].[Equity_MAX]"></block>
+</column>
+<column name="Fixed_Inc_MIN" visible="">
+<block  value="[IPS].[Fixed_Inc_MIN]" display="[IPS].[Fixed_Inc_MIN]"></block>
+</column>
+<column name="Fixed_Inc_TRGT" visible="">
+<block  value="[IPS].[Fixed_Inc_TRGT]" display="[IPS].[Fixed_Inc_TRGT]"></block>
+</column>
+<column name="Fixed_Inc_MAX" visible="">
+<block  value="[IPS].[Fixed_Inc_MAX]" display="[IPS].[Fixed_Inc_MAX]"></block>
+</column>
+<column name="Alt_MIN" visible="">
+<block  value="[IPS].[Alt_MIN]" display="[IPS].[Alt_MIN]"></block>
+</column>
+<column name="Alt_TRGT" visible="">
+<block  value="[IPS].[Alt_TRGT]" display="[IPS].[Alt_TRGT]"></block>
+</column>
+<column name="Alt_MAX" visible="">
+<block  value="[IPS].[Alt_MAX]" display="[IPS].[Alt_MAX]"></block>
+</column>
+<column name="Foreign_MIN" visible="">
+<block  value="[IPS].[Foreign_MIN]" display="[IPS].[Foreign_MIN]"></block>
+</column>
+<column name="Foreign_TRGT" visible="">
+<block  value="[IPS].[Foreign_TRGT]" display="[IPS].[Foreign_TRGT]"></block>
+</column>
+<column name="Foreign_MAX" visible="">
+<block  value="[IPS].[Foreign_MAX]" display="[IPS].[Foreign_MAX]"></block>
+</column>
+<column name="PM_Code" visible="">
+<block  value="[IPS].[PM_Code]" display="[IPS].[PM_Code]"></block>
+</column>
+<column name="PortfolioClass" visible="">
+<block  value="[IPS].[PortfolioClass]" display="[IPS].[PortfolioClass]"></block>
+</column>
+<column name="Portfolio_Name_Exclude" visible="">
+<block  value="[Exclude].[Portfolio_Name_Exclude]" display="[Exclude].[Portfolio_Name_Exclude]"></block>
+</column>
+</columns>
+<filters>
+<block  type="Filter" >
+<block  value="[Out].[Portfolio_Name_Exclude]" display="[Out].[Portfolio_Name_Exclude]"></block>
+<block  type="value"  value="=" display="="></block>
+<block  type="value"  value=""></block>
+</block>
+</filters>
+<stStyles>
+	<stStyle name="DS_Compliance_IPS_Clean_Exclude">
+		<columns>
+			<column name="Portfolio_Name_Exclude" visible="True" groupby="select">
+<block  value="[In].[Portfolio_Name]" display="[In].[Portfolio_Name]"></block>
+			</column>
+		</columns>
+	</stStyle>
+</stStyles>
+</statement>
+</caswilxml>

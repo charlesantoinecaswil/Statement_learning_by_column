@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<caswilxml xmlns:ns0="http://Caswil">
+<statement lastWritten="2019-03-09T14:24:01139">
+<sources>
+<source name="SecReport" description="">
+<connection filename="[parameter].[dataFolder]\PIM_SecRpt*{last}.xls*" type="CSV" header="ADP ID" format="" headerIncluded="True" previewSize="0" previewMode="False" includeFilename="False" includeRowIndex="False" />
+</source>
+</sources>
+<columns>
+<column name="ADP_ID" visible="" groupby="select">
+<block  value="[SecReport].[ADP_ID]" display="[SecReport].[ADP_ID]"></block>
+</column>
+<column name="Credit_Rating" visible="" groupby="maxText">
+<block  value="[SecReport].[Credit_Rating]" display="[SecReport].[Credit_Rating]"></block>
+</column>
+</columns>
+<filters>
+<block  type="Filter" >
+<block  value="[Out].[ADP_ID]" display="[Out].[ADP_ID]"></block>
+<block  type="value"  value="&#60;&#62;" display="&#60;&#62;"></block>
+<block  type="value"  value="PIM Security Report" display="PIM Security Report"></block>
+</block>
+<block  type="Filter" >
+<block  value="[Out].[ADP_ID]" display="[Out].[ADP_ID]"></block>
+<block  type="value"  value="&#60;&#62;" display="&#60;&#62;"></block>
+<block  type="value"  value="ADP ID" display="ADP ID"></block>
+</block>
+<block  type="Filter" >
+<block  type="Left" >
+<block  value="[Out].[ADP_ID]" display="[Out].[ADP_ID]"></block>
+<block  type="value"  value="9" iValue="9" display="9"></block>
+</block>
+<block  type="value"  value="&#60;&#62;" display="&#60;&#62;"></block>
+<block  type="value"  value="Report as" display="Report as"></block>
+</block>
+<block  type="Filter" >
+<block  value="[Out].[ADP_ID]" display="[Out].[ADP_ID]"></block>
+<block  type="value"  value="&#60;&#62;" display="&#60;&#62;"></block>
+<block  type="value"  value=""></block>
+</block>
+</filters>
+</statement>
+</caswilxml>

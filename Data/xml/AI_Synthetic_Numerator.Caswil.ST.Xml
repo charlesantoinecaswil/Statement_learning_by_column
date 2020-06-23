@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<caswilxml xmlns:ns0="http://Caswil">
+<statement lastWritten="2020-05-19T16:41:44439">
+<sources>
+<source name="NewSrc1" description="">
+<connection filename="xml\DS_Positions_Reclass.Caswil.ST.Xml" type="Statement" header="" format="" headerIncluded="True" previewSize="0" previewMode="False" includeFilename="False" includeRowIndex="False" />
+</source>
+</sources>
+<columns>
+<column name="Syn_Num_Col" visible="" groupby="select">
+<block  type="Map" >
+<block  value="[NewSrc1].[Instrument_Description]" display="[NewSrc1].[Instrument_Description]"></block>
+</block>
+</column>
+<column name="Value" visible="" groupby="sum">
+<block  value="[NewSrc1].[MV&#40;CAD&#41;]" display="[NewSrc1].[MV&#40;CAD&#41;]"></block>
+</column>
+<column name="Syn_Denum_Col" visible="" groupby="select">
+<block  type="Map" >
+<block  value="[NewSrc1].[ModelName]" display="[NewSrc1].[ModelName]"></block>
+<block  value="[NewSrc1].[AccountCode]" display="[NewSrc1].[AccountCode]"></block>
+</block>
+</column>
+</columns>
+<filters>
+<block  type="Filter" >
+<block  value="[NewSrc1].[ModelName]" display="[NewSrc1].[ModelName]"></block>
+<block  type="value"  value="&#60;&#62;" display="&#60;&#62;"></block>
+<block  type="value"  value=""></block>
+</block>
+</filters>
+</statement>
+</caswilxml>

@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<caswilxml xmlns:ns0="http://Caswil">
+<statement>DS_Compliance_IPS_AccountList.Caswil.ST.Xml</statement>
+<parameters>
+<parameter name="dataFolder">C:\Users\Charles-Antoine\Desktop\AI_Package_Ratio\AI_Package_Ratio\data</parameter>
+<parameter name="PortfolioClass">1-Revenu|0|32|2-Prudent|33|44|3-Equilibr&#233;|45|54|4-Equilibr&#233; Plus|55|64|5-Croissance|65|82|6-Croissance Dynamique|83|100|</parameter>
+</parameters>
+<sources>
+<source CRC="0" lastWritten="2020-06-04T13:46:17589" header="" originalValue="xml\DS_Compliance_IPS.Caswil.ST.Xml">..\app\result\DS_Compliance_IPS.1.Caswil.Csw</source>
+</sources>
+</caswilxml>

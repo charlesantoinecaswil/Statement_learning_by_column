@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<caswilxml xmlns:ns0="http://Caswil">
+<statement>AI_Synthetic_Numerator.Caswil.ST.Xml</statement>
+<parameters>
+<parameter name="dataFolder">C:\Users\Charles-Antoine\Desktop\AI_Package_Ratio\AI_Package_Ratio\data</parameter>
+<parameter name="TacClassification">Cash|Fixed|Eq Can|Eq US|Eq Intl|Alts|Other</parameter>
+<parameter name="FIAllocation">1|Preferreds|20|2|GIC|20|3|Government|5|4|Corporate|35|5|Corp HY|20</parameter>
+<parameter name="PortfolioClass">1-Revenu|0|32|2-Prudent|33|44|3-Equilibr&#233;|45|54|4-Equilibr&#233; Plus|55|64|5-Croissance|65|82|6-Croissance Dynamique|83|100|</parameter>
+</parameters>
+<sources>
+<source CRC="0" lastWritten="2019-02-24T11:14:28" header="" originalValue="xml\DS_Positions_Reclass.Caswil.ST.Xml">..\app\xml\DS_Positions_Reclass.Caswil.ST.Xml</source>
+</sources>
+</caswilxml>

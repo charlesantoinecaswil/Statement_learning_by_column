@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<caswilxml xmlns:ns0="http://Caswil">
+<statement lastWritten="2018-09-11T18:00:03928">
+<sources>
+<source name="pimips" description="">
+<connection filename="xml\DS_Compliance_IPS.Caswil.ST.Xml" type="Statement" header="" format="" headerIncluded="True" previewSize="0" previewMode="False" includeFilename="False" includeRowIndex="False" />
+</source>
+</sources>
+<columns>
+<column name="Portfolio" visible="True" groupby="select">
+<block  type="Switch" >
+<block  value="[pimips].[Portfolio]" display="[pimips].[Portfolio]"></block>
+<block  type="value"  value="=" display="="></block>
+<block  type="Value"  value=""></block>
+<block  value="[pimips].[Portfolio_Name]" display="[pimips].[Portfolio_Name]"></block>
+<block  value="[pimips].[Portfolio]" display="[pimips].[Portfolio]"></block>
+</block>
+</column>
+<column name="AccountCode" visible="True" groupby="multiline">
+<block  type="Trim" >
+<block  type="Replace" >
+<block  value="[pimips].[Accounts]" display="[pimips].[Accounts]"></block>
+<block  type="Value"  value="," display=","></block>
+<block  type="Value"  value="|" display="|"></block>
+</block>
+<block  type="Value"  value="|" display="|"></block>
+<block  type="Value"  value="End" display="End"></block>
+</block>
+</column>
+<column name="CashEq_MIN" visible="" groupby="max">
+<block  value="[pimips].[CashEq_MIN]" display="[pimips].[CashEq_MIN]"></block>
+</column>
+<column name="CashEq_TRGT" visible="" groupby="max">
+<block  value="[pimips].[CashEq_TRGT]" display="[pimips].[CashEq_TRGT]"></block>
+</column>
+<column name="CashEq_MAX" visible="" groupby="max">
+<block  value="[pimips].[CashEq_MAX]" display="[pimips].[CashEq_MAX]"></block>
+</column>
+<column name="Equity_MIN" visible="" groupby="max">
+<block  value="[pimips].[Equity_MIN]" display="[pimips].[Equity_MIN]"></block>
+</column>
+<column name="Equity_TRGT" visible="" groupby="max">
+<block  value="[pimips].[Equity_TRGT]" display="[pimips].[Equity_TRGT]"></block>
+</column>
+<column name="Equity_MAX" visible="" groupby="max">
+<block  value="[pimips].[Equity_MAX]" display="[pimips].[Equity_MAX]"></block>
+</column>
+<column name="Fixed_Inc_MIN" visible="" groupby="max">
+<block  value="[pimips].[Fixed_Inc_MIN]" display="[pimips].[Fixed_Inc_MIN]"></block>
+</column>
+<column name="Fixed_Inc_TRGT" visible="" groupby="max">
+<block  value="[pimips].[Fixed_Inc_TRGT]" display="[pimips].[Fixed_Inc_TRGT]"></block>
+</column>
+<column name="Fixed_Inc_MAX" visible="" groupby="max">
+<block  value="[pimips].[Fixed_Inc_MAX]" display="[pimips].[Fixed_Inc_MAX]"></block>
+</column>
+<column name="Alt_MIN" visible="" groupby="max">
+<block  value="[pimips].[Alt_MIN]" display="[pimips].[Alt_MIN]"></block>
+</column>
+<column name="Alt_TRGT" visible="" groupby="max">
+<block  value="[pimips].[Alt_TRGT]" display="[pimips].[Alt_TRGT]"></block>
+</column>
+<column name="Alt_MAX" visible="" groupby="max">
+<block  value="[pimips].[Alt_MAX]" display="[pimips].[Alt_MAX]"></block>
+</column>
+<column name="Foreign_MIN" visible="" groupby="max">
+<block  value="[pimips].[Foreign_MIN]" display="[pimips].[Foreign_MIN]"></block>
+</column>
+<column name="Foreign_TRGT" visible="" groupby="max">
+<block  value="[pimips].[Foreign_TRGT]" display="[pimips].[Foreign_TRGT]"></block>
+</column>
+<column name="Foreign_MAX" visible="" groupby="max">
+<block  value="[pimips].[Foreign_MAX]" display="[pimips].[Foreign_MAX]"></block>
+</column>
+<column name="PM_Code" visible="" groupby="select">
+<block  value="[pimips].[PM_Code]" display="[pimips].[PM_Code]"></block>
+</column>
+<column name="PortfolioClass" visible="" groupby="select">
+<block  value="[pimips].[PortfolioClass]" display="[pimips].[PortfolioClass]"></block>
+</column>
+<column name="Accounts_warnings" visible="" groupby="select">
+<block  value="[pimips].[Accounts_warnings]" display="[pimips].[Accounts_warnings]"></block>
+</column>
+<column name="Accounts_excluded" visible="" groupby="select">
+<block  value="[pimips].[Accounts_excluded]" display="[pimips].[Accounts_excluded]"></block>
+</column>
+<column name="Note" visible="" groupby="select">
+<block  value="[pimips].[Note]" display="[pimips].[Note]"></block>
+</column>
+<column name="CCW" visible="" groupby="select">
+<block  value="[pimips].[CCW]" display="[pimips].[CCW]"></block>
+</column>
+</columns>
+<filters>
+<block  type="Filter" >
+<block  value="[Out].[AccountCode]"></block>
+<block  type="value"  value="&#60;&#62;" display="&#60;&#62;"></block>
+<block  type="value"  value=""></block>
+</block>
+</filters>
+</statement>
+</caswilxml>

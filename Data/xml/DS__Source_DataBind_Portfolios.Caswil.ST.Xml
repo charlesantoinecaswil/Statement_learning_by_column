@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<caswilxml xmlns:ns0="http://Caswil">
+<statement lastWritten="2018-09-11T17:57:09535">
+<sources>
+<source name="Household" description="">
+<connection filename="..\DS_DataBind*{last}.xls*{Portfolios}" type="Excel" header="Accounts" format="" headerIncluded="False" previewSize="0" previewMode="False" includeFilename="False" includeRowIndex="False" />
+</source>
+</sources>
+<columns>
+<column name="Portfolio_IPS" visible="">
+<block  value="[Household].[Portfolio_IPS]" display="[Household].[Portfolio_IPS]"></block>
+</column>
+<column name="Portfolio_Overwrite" visible="">
+<block  value="[Household].[Portfolio_Overwrite]" display="[Household].[Portfolio_Overwrite]"></block>
+</column>
+<column name="Accounts" visible="">
+<block  value="[Household].[Accounts]" display="[Household].[Accounts]"></block>
+</column>
+<column name="Accounts_warnings" visible="">
+<block  value="[Household].[Accounts_warnings]" display="[Household].[Accounts_warnings]"></block>
+</column>
+<column name="Accounts_excluded" visible="">
+<block  value="[Household].[Accounts_excluded]" display="[Household].[Accounts_excluded]"></block>
+</column>
+<column name="Note" visible="">
+<block  value="[Household].[Note]" display="[Household].[Note]"></block>
+</column>
+<column name="Target_Eq" visible="">
+<block  value="[Household].[EqTarget]" display="[Household].[EqTarget]"></block>
+</column>
+<column name="Target_FI" visible="">
+<block  value="[Household].[FixedTarget]" display="[Household].[FixedTarget]"></block>
+</column>
+<column name="Target_Cash" visible="">
+<block  value="[Household].[Target_Cash]" display="[Household].[Target_Cash]"></block>
+</column>
+<column name="Target_Alts" visible="">
+<block  value="[Household].[Target_Alts]" display="[Household].[Target_Alts]"></block>
+</column>
+<column name="PM_Code" visible="">
+<block  type="Map" >
+<block  value="[Household].[IA_Code]" display="[Household].[IA_Code]"></block>
+<block  value="[Household].[PM_Code]" display="[Household].[PM_Code]"></block>
+</block>
+</column>
+<column name="CCW" visible="">
+<block  value="[Household].[CCW]" display="[Household].[CCW]"></block>
+</column>
+</columns>
+</statement>
+</caswilxml>

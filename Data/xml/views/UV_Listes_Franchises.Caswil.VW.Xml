@@ -1,0 +1,117 @@
+<?xml version="1.0"?>
+<caswilxml xmlns:ns0="http://Caswil">
+<view state="Maximized" top="-8" left="-8" width="1936" height="1056">
+	<user>skhuong</user>
+	<tile title="newTile" guid="K1874U">
+		<sources>
+			<source name="" description="New Source">
+				<connection  datapath="xml\UV_GroupList_Franchises_final.Caswil.ST.Xml" datatype="Statement" header="GROUPE" includefilename="False" includeheader="False" includerowindex="False" previewmode="False" previewsize="0"/>
+			</source>
+		</sources>
+		<position top="0" left="0" width="1916" height="436"/>
+		<displays current="0">
+			<display colorOfChanged="173,216,230">
+				<options></options>
+				<serie transparency="" axistype="Primary">
+					<type>grid</type>
+					<columns>
+						<column src="GROUPE">GROUPE</column>
+						<column src="CLASSE">CLASSE</column>
+						<column src="Type_de_list_EN">Type_de_list_EN</column>
+						<column src="Type_de_liste_FR">Type_de_liste_FR</column>
+						<column src="Nom_Anglais">Nom_Anglais</column>
+						<column src="Nom_Français">Nom_Français</column>
+						<column src="DATE_EFFECTIVE_MALADIE">DATE_EFFECTIVE_MALADIE</column>
+						<column src="FRANCHISE_COMMUNE_MALADIE">FRANCHISE_COMMUNE_MALADIE</column>
+						<column src="FRANCHISE_COMMUNE_VUE">FRANCHISE_COMMUNE_VUE</column>
+						<column src="FRANCHISE_F_N_TICKET">FRANCHISE_F_N_TICKET</column>
+						<column src="FRANCHISE_INDIVIDUELLE_MALADIE">FRANCHISE_INDIVIDUELLE_MALADIE</column>
+						<column src="FRANCHISE_INDIVIDUELLE_VUE">FRANCHISE_INDIVIDUELLE_VUE</column>
+						<column src="FRANCHISE_ASSURE_CONTRAT_MALADIE">FRANCHISE_ASSURE_CONTRAT_MALADIE</column>
+						<column src="FRANCHISE_ASSURE_APPLIQUEE_MALADIE">FRANCHISE_ASSURE_APPLIQUEE_MALADIE</column>
+						<column src="FRANCHISE_FAMILLE_CONTRAT_MALADIE">FRANCHISE_FAMILLE_CONTRAT_MALADIE</column>
+						<column src="FRANCHISE_FAMILLE_APPLIQUEE_MALADIE">FRANCHISE_FAMILLE_APPLIQUEE_MALADIE</column>
+						<column src="FRANCHISE_COUPLE_CONTRAT_MALADIE">FRANCHISE_COUPLE_CONTRAT_MALADIE</column>
+						<column src="FRANCHISE_COUPLE_APPLIQUEE_MALADIE">FRANCHISE_COUPLE_APPLIQUEE_MALADIE</column>
+						<column src="FRANCHISE_MONO_CONTRAT_MALADIE">FRANCHISE_MONO_CONTRAT_MALADIE</column>
+						<column src="FRANCHISE_MONO_APPLIQUEE_MALADIE">FRANCHISE_MONO_APPLIQUEE_MALADIE</column>
+						<column src="FRANCHISE_ASSURE_CONTRAT_VUE">FRANCHISE_ASSURE_CONTRAT_VUE</column>
+						<column src="FRANCHISE_ASSURE_APPLIQUEE_VUE">FRANCHISE_ASSURE_APPLIQUEE_VUE</column>
+						<column src="FRANCHISE_FAMILLE_APPLIQUEE_VUE">FRANCHISE_FAMILLE_APPLIQUEE_VUE</column>
+						<column src="FRANCHISE_COUPLE_CONTRAT_VUE">FRANCHISE_COUPLE_CONTRAT_VUE</column>
+						<column src="FRANCHISE_COUPLE_APPLIQUEE_VUE">FRANCHISE_COUPLE_APPLIQUEE_VUE</column>
+						<column src="FRANCHISE_MONO_CONTRAT_VUE">FRANCHISE_MONO_CONTRAT_VUE</column>
+						<column src="FRANCHISE_MONO_APPLIQUEE_VUE">FRANCHISE_MONO_APPLIQUEE_VUE</column>
+						<column src="COMPTE">COMPTE</column>
+						<column src="Merge">Merge</column>
+						<column src="Concat_FRC">Concat_FRC</column>
+					</columns>
+					<xcolumn></xcolumn>
+					<ycolumn></ycolumn>
+					<events>
+					</events>
+				</serie>
+			</display>
+		</displays>
+	</tile>
+	<tile title="newTile" guid="R5872S">
+		<sources>
+			<source name="" description="New Source">
+				<connection  datapath="xml\UV_GroupList_Franchises_final_Liste_Short.Caswil.ST.Xml" datatype="Statement" header="Count" includefilename="False" includeheader="False" includerowindex="False" previewmode="False" previewsize="0"/>
+			</source>
+		</sources>
+		<position top="436" left="0" width="945" height="530"/>
+		<displays current="0">
+			<display colorOfChanged="173,216,230">
+				<options></options>
+				<serie transparency="" axistype="Primary">
+					<type>grid</type>
+					<columns>
+						<column src="Type_de_list_EN">Type_de_list_EN</column>
+						<column src="Type_de_liste_FR">Type_de_liste_FR</column>
+						<column src="Nom_Anglais">Nom_Anglais</column>
+						<column src="Nom_Français">Nom_Français</column>
+						<column src="Count" format="#,##0">Count</column>
+						<column src="GrpCls">GrpCls</column>
+						<column src="Concat">Concat</column>
+					</columns>
+					<xcolumn></xcolumn>
+					<ycolumn></ycolumn>
+					<events>
+					</events>
+				</serie>
+			</display>
+		</displays>
+	</tile>
+	<tile title="newTile" guid="E6090R">
+		<sources>
+			<source name="" description="New Source">
+				<connection  datapath="xml\UV_GroupList_Franchises_final_Liste.Caswil.ST.Xml" datatype="Statement" header="Count" includefilename="False" includeheader="False" includerowindex="False" previewmode="False" previewsize="0"/>
+			</source>
+		</sources>
+		<position top="436" left="945" width="971" height="530"/>
+		<displays current="0">
+			<display colorOfChanged="173,216,230">
+				<options></options>
+				<serie transparency="" axistype="Primary">
+					<type>grid</type>
+					<columns>
+						<column src="Type_de_list_EN">Type_de_list_EN</column>
+						<column src="Type_de_liste_FR">Type_de_liste_FR</column>
+						<column src="Nom_Anglais">Nom_Anglais</column>
+						<column src="Nom_Français">Nom_Français</column>
+						<column src="Count" format="#,##0" align="right">Count</column>
+						<column src="COMPTE">COMPTE</column>
+						<column src="GrpCls">GrpCls</column>
+						<column src="Concat">Concat</column>
+					</columns>
+					<xcolumn></xcolumn>
+					<ycolumn></ycolumn>
+					<events>
+					</events>
+				</serie>
+			</display>
+		</displays>
+	</tile>
+</view>
+</caswilxml>

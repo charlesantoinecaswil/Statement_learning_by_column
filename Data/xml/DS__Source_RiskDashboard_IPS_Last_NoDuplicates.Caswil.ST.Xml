@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<caswilxml xmlns:ns0="http://Caswil">
+<statement lastWritten="2018-07-18T08:56:48144">
+<sources>
+<source name="riskDashboard" description="">
+<connection filename="xml\DS__Source_RiskDashboard_IPS_Last.Caswil.ST.Xml" type="Statement" header="" format="" headerIncluded="True" previewSize="0" previewMode="False" includeFilename="False" includeRowIndex="False" />
+</source>
+<source name="count" description="" stStyle="DS__Source_ClientLink_Positions_Last_NoDuplicates_count">
+<connection filename="xml\DS__Source_RiskDashboard_IPS_Last.Caswil.ST.Xml" type="Statement" header="" format="" headerIncluded="True" previewSize="0" previewMode="False" includeFilename="False" includeRowIndex="False" />
+</source>
+</sources>
+<columns>
+<column name="Portfolio_Name" visible="">
+<block  type="Switch" >
+<block  value="[count].[Portfolio]" display="[count].[Portfolio]"></block>
+<block  type="Value"  value="&#62;" display="&#62;"></block>
+<block  type="Value"  value="1" iValue="1" display="1"></block>
+<block  type="Map" >
+<block  value="[riskDashboard].[Portfolio_Name]" display="[riskDashboard].[Portfolio_Name]"></block>
+<block  type="Value"  value=" - " display=" - "></block>
+<block  value="[riskDashboard].[Portfolio]" display="[riskDashboard].[Portfolio]"></block>
+</block>
+<block  value="[riskDashboard].[Portfolio_Name]" display="[riskDashboard].[Portfolio_Name]"></block>
+</block>
+</column>
+<column name="Portfolio_Name_Join" visible="false">
+<block  value="[riskDashboard].[Portfolio_Name]" display="[riskDashboard].[Portfolio_Name]"></block>
+<block  value="[count].[Portfolio_Name]" display="[count].[Portfolio_Name]"></block>
+
+</column>
+<column name="Portfolio" visible="">
+<block  value="[riskDashboard].[Portfolio]" display="[riskDashboard].[Portfolio]"></block>
+</column>
+<column name="Accounts" visible="">
+<block  value="[riskDashboard].[Accounts]" display="[riskDashboard].[Accounts]"></block>
+</column>
+<column name="CashEq_MIN" visible="">
+<block  value="[riskDashboard].[CashEq_MIN]" display="[riskDashboard].[CashEq_MIN]"></block>
+</column>
+<column name="CashEq_TRGT" visible="">
+<block  value="[riskDashboard].[CashEq_TRGT]" display="[riskDashboard].[CashEq_TRGT]"></block>
+</column>
+<column name="CashEq_MAX" visible="">
+<block  value="[riskDashboard].[CashEq_MAX]" display="[riskDashboard].[CashEq_MAX]"></block>
+</column>
+<column name="Equity_MIN" visible="">
+<block  value="[riskDashboard].[Equity_MIN]" display="[riskDashboard].[Equity_MIN]"></block>
+</column>
+<column name="Equity_TRGT" visible="">
+<block  value="[riskDashboard].[Equity_TRGT]" display="[riskDashboard].[Equity_TRGT]"></block>
+</column>
+<column name="Equity_MAX" visible="">
+<block  value="[riskDashboard].[Equity_MAX]" display="[riskDashboard].[Equity_MAX]"></block>
+</column>
+<column name="Fixed_Inc_MIN" visible="">
+<block  value="[riskDashboard].[Fixed_Inc_MIN]" display="[riskDashboard].[Fixed_Inc_MIN]"></block>
+</column>
+<column name="Fixed_Inc_TRGT" visible="">
+<block  value="[riskDashboard].[Fixed_Inc_TRGT]" display="[riskDashboard].[Fixed_Inc_TRGT]"></block>
+</column>
+<column name="Fixed_Inc_MAX" visible="">
+<block  value="[riskDashboard].[Fixed_Inc_MAX]" display="[riskDashboard].[Fixed_Inc_MAX]"></block>
+</column>
+<column name="Alt_MIN" visible="">
+<block  value="[riskDashboard].[Alt_MIN]" display="[riskDashboard].[Alt_MIN]"></block>
+</column>
+<column name="Alt_TRGT" visible="">
+<block  value="[riskDashboard].[Alt_TRGT]" display="[riskDashboard].[Alt_TRGT]"></block>
+</column>
+<column name="Alt_MAX" visible="">
+<block  value="[riskDashboard].[Alt_MAX]" display="[riskDashboard].[Alt_MAX]"></block>
+</column>
+<column name="Foreign_MIN" visible="">
+<block  value="[riskDashboard].[Foreign_MIN]" display="[riskDashboard].[Foreign_MIN]"></block>
+</column>
+<column name="Foreign_TRGT" visible="">
+<block  value="[riskDashboard].[Foreign_TRGT]" display="[riskDashboard].[Foreign_TRGT]"></block>
+</column>
+<column name="Foreign_MAX" visible="">
+<block  value="[riskDashboard].[Foreign_MAX]" display="[riskDashboard].[Foreign_MAX]"></block>
+</column>
+<column name="PM_Code" visible="">
+<block  value="[riskDashboard].[PM_Code]" display="[riskDashboard].[PM_Code]"></block>
+</column>
+<column name="PortfolioClass" visible="">
+<block  value="[riskDashboard].[PortfolioClass]" display="[riskDashboard].[PortfolioClass]"></block>
+</column>
+</columns>
+<stStyles>
+	<stStyle name="DS__Source_ClientLink_Positions_Last_NoDuplicates_count">
+		<columns>
+			<column name="Portfolio_Name" visible="True" groupby="select">
+<block  value="[In].[Portfolio_Name]" display="[In].[Portfolio_Name]"></block>
+			</column>
+			<column name="Portfolio" visible="True" groupby="countItems">
+<block  value="[In].[Portfolio]" display="[In].[Portfolio]"></block>
+			</column>
+		</columns>
+	</stStyle>
+</stStyles>
+</statement>
+</caswilxml>

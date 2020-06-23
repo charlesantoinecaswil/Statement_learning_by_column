@@ -1,0 +1,195 @@
+<?xml version="1.0"?>
+<caswilxml xmlns:ns0="http://Caswil">
+<statement lastWritten="2019-03-09T14:22:35674">
+<sources>
+<source name="ModelFile" description="" stStyle="TC_ModelFile1_ModelFile">
+<connection filename="[parameter].[dataFolder]\Model*{last}.csv" type="CSV" header="Portfolio" format="" headerIncluded="True" previewSize="0" previewMode="False" includeFilename="False" includeRowIndex="False" />
+</source>
+</sources>
+<columns>
+<column name="AccountCode" visible="True" groupby="select">
+<block  value="[ModelFile].[AccountCode]" display="[ModelFile].[AccountCode]"></block>
+</column>
+<column name="AssetClass" visible="True" groupby="select">
+<block  type="ToSplit" >
+<block  type="Replace" >
+<block  value="[ModelFile].[ModelList]" display="[ModelFile].[ModelList]"></block>
+<block  type="Value"  value="*" display="*"></block>
+<block  type="Value"  value="|" display="|"></block>
+</block>
+<block  type="Value"  value=" - " display=" - "></block>
+<block  type="value"  value="1" iValue="1" display="1"></block>
+</block>
+</column>
+<column name="AccountName" visible="True" groupby="maxText">
+<block  value="[ModelFile].[AccountName]" display="[ModelFile].[AccountName]"></block>
+</column>
+<column name="ModelName" visible="True" groupby="select">
+<block  type="Trim" >
+<block  type="Replace" >
+<block  type="Replace" >
+<block  value="[ModelFile].[ModelList]" display="[ModelFile].[ModelList]"></block>
+<block  type="Map" >
+<block  type="Value"  value=" "></block>
+<block  type="ToSplit" >
+<block  value="[ModelFile].[ModelList]" display="[ModelFile].[ModelList]"></block>
+<block  type="Value"  value=" "></block>
+<block  type="Calculate" >
+<block  type="Find" >
+<block  value="[ModelFile].[ModelList]" display="[ModelFile].[ModelList]"></block>
+<block  type="Value"  value=" "></block>
+<block  type="Value"  value="Count" display="Count"></block>
+</block>
+<block  type="value"  value="+" display="+"></block>
+<block  type="Value"  value="1" iValue="1" display="1"></block>
+</block>
+</block>
+</block>
+<block  type="Value"  value=""></block>
+</block>
+<block  type="Value"  value="*" display="*"></block>
+<block  type="Value"  value="|" display="|"></block>
+</block>
+<block  type="Value"  value=" "></block>
+<block  type="value"  value="All" display="All"></block>
+</block>
+</column>
+<column name="PercCL" visible="True" groupby="max">
+<block  type="Replace" >
+<block  type="ToSplit" >
+<block  value="[ModelFile].[ModelList]" display="[ModelFile].[ModelList]"></block>
+<block  type="Value"  value=" "></block>
+<block  type="Calculate" >
+<block  type="Find" >
+<block  value="[ModelFile].[ModelList]" display="[ModelFile].[ModelList]"></block>
+<block  type="Value"  value=" "></block>
+<block  type="Value"  value="Count" display="Count"></block>
+</block>
+<block  type="value"  value="+" display="+"></block>
+<block  type="Value"  value="1" iValue="1" display="1"></block>
+</block>
+</block>
+<block  type="Value"  value="%" display="%"></block>
+<block  type="Value"  value=""></block>
+</block>
+</column>
+</columns>
+<filters>
+<block  type="Filter" >
+<block  value="[In].[Portfolio]" display="[In].[Portfolio]"></block>
+<block  type="value"  value="&#60;&#62;" display="&#60;&#62;"></block>
+<block  type="value"  value="Portfolio" display="Portfolio"></block>
+</block>
+<block  type="Filter" >
+<block  value="[Out].[AccountName]" display="[Out].[AccountName]"></block>
+<block  type="value"  value="&#60;&#62;" display="&#60;&#62;"></block>
+<block  type="value"  value=""></block>
+</block>
+<block  type="Filter" >
+<block  type="Length" >
+<block  value="[ModelFile].[AccountCode]" display="[ModelFile].[AccountCode]"></block>
+</block>
+<block  type="value"  value="=" display="="></block>
+<block  type="value"  value="13" iValue="13" display="13"></block>
+</block>
+<block  type="Filter" >
+<block  type="Find" >
+<block  value="[Out].[AccountCode]" display="[Out].[AccountCode]"></block>
+<block  type="value"  value=" "></block>
+<block  type="value"  value="Count" display="Count"></block>
+</block>
+<block  type="value"  value="=" display="="></block>
+<block  type="value"  value="0" iValue="0" display="0"></block>
+</block>
+</filters>
+<stStyles>
+	<stStyle name="TC_ModelFile1_ModelFile">
+		<columns>
+			<column name="AccountCode" visible="True" groupby="select">
+<block  type="Switch" >
+<block  type="Find" >
+<block  value="[In].[Portfolio]" display="[In].[Portfolio]"></block>
+<block  type="Value"  value="&#40;Multi-Currency&#41;" display="&#40;Multi-Currency&#41;"></block>
+<block  type="value"  value="Index" display="Index"></block>
+</block>
+<block  type="Value"  value="&#60;" display="&#60;"></block>
+<block  type="Value"  value="0" iValue="0" display="0"></block>
+<block  type="Left" >
+<block  type="Right" >
+<block  value="[In].[Portfolio]" display="[In].[Portfolio]"></block>
+<block  type="Value"  value="14" iValue="14" display="14"></block>
+</block>
+<block  type="Value"  value="13" iValue="13" display="13"></block>
+</block>
+<block  type="Left" >
+<block  value="[In].[Portfolio]" display="[In].[Portfolio]"></block>
+<block  type="Value"  value="10" iValue="10" display="10"></block>
+</block>
+</block>
+			</column>
+			<column name="AccountName" visible="True" groupby="select">
+<block  type="Switch" >
+<block  type="Find" >
+<block  value="[In].[Portfolio]" display="[In].[Portfolio]"></block>
+<block  type="Value"  value="&#40;Multi-Currency&#41;" display="&#40;Multi-Currency&#41;"></block>
+<block  type="value"  value="Index" display="Index"></block>
+</block>
+<block  type="Value"  value="&#60;" display="&#60;"></block>
+<block  type="Value"  value="0" iValue="0" display="0"></block>
+<block  type="Left" >
+<block  value="[In].[Portfolio]" display="[In].[Portfolio]"></block>
+<block  type="Calculate" >
+<block  type="Length" >
+<block  value="[In].[Portfolio]" display="[In].[Portfolio]"></block>
+</block>
+<block  type="Value"  value="-" display="-"></block>
+<block  type="Value"  value="16" iValue="16" display="16"></block>
+</block>
+</block>
+<block  type="Replace" >
+<block  type="ToSplit" >
+<block  value="[In].[Portfolio]" display="[In].[Portfolio]"></block>
+<block  type="Value"  value=" - " display=" - "></block>
+<block  type="Value"  value="2" iValue="2" display="2"></block>
+</block>
+<block  type="Value"  value=" &#40;Multi-Currency&#41;" display=" &#40;Multi-Currency&#41;"></block>
+<block  type="Value"  value=""></block>
+</block>
+</block>
+			</column>
+			<column name="ModelList" visible="True" groupby="multiline">
+<block  type="Replace" >
+<block  type="Replace" >
+<block  type="Trim" >
+<block  type="Trim" >
+<block  value="[In].[Model_Target_%]" display="[In].[Model_Target_%]"></block>
+<block  type="Value"  value=" "></block>
+<block  type="value"  value="All" display="All"></block>
+</block>
+<block  type="Value"  value=";" display=";"></block>
+<block  type="value"  value="All" display="All"></block>
+</block>
+<block  type="Value"  value="|" display="|"></block>
+<block  type="Value"  value="*" display="*"></block>
+</block>
+<block  type="Value"  value="; " display="; "></block>
+<block  type="Value"  value="|" display="|"></block>
+</block>
+			</column>
+		</columns>
+		<filters>
+<block  type="Filter" >
+<block  value="[Out].[AccountCode]" display="[Out].[AccountCode]"></block>
+<block  type="value"  value="&#60;&#62;" display="&#60;&#62;"></block>
+<block  type="value"  value="Portfolio" display="Portfolio"></block>
+</block>
+<block  type="Filter" >
+<block  value="[Out].[ModelList]" display="[Out].[ModelList]"></block>
+<block  type="value"  value="&#60;&#62;" display="&#60;&#62;"></block>
+<block  type="value"  value=""></block>
+</block>
+		</filters>
+	</stStyle>
+</stStyles>
+</statement>
+</caswilxml>

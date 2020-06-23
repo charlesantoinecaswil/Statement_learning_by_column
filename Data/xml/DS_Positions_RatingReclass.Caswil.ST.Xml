@@ -1,0 +1,187 @@
+<?xml version="1.0"?>
+<caswilxml xmlns:ns0="http://Caswil">
+<statement lastWritten="2018-09-08T08:22:10234">
+<sources>
+<source name="Positions" description="">
+<connection filename="xml\DS_Positions_Distinct.Caswil.ST.Xml" type="Statement" header="" format="" headerIncluded="True" previewSize="0" previewMode="False" includeFilename="False" includeRowIndex="False" />
+</source>
+<source name="ReclassPos" description="">
+<connection filename="xml\DS__Source_DataBind_Positions.Caswil.ST.Xml" type="Statement" header="" format="" headerIncluded="True" previewSize="0" previewMode="False" includeFilename="False" includeRowIndex="False" />
+</source>
+<source name="Fixed" description="">
+<connection filename="xml\DS_Fixed_Type.Caswil.ST.Xml" type="Statement" header="" format="" headerIncluded="True" previewSize="0" previewMode="False" includeFilename="False" includeRowIndex="False" />
+</source>
+</sources>
+<columns>
+<column name="Instrument_Description" visible="">
+<block  type="Trim" >
+<block  value="[Positions].[Instrument_Description]" display="[Positions].[Instrument_Description]"></block>
+<block  type="Value"  value=" "></block>
+<block  type="value"  value="All" display="All"></block>
+</block>
+<block  type="Trim" >
+<block  value="[ReclassPos].[Instrument_Description]" display="[ReclassPos].[Instrument_Description]"></block>
+<block  type="Value"  value=" "></block>
+<block  type="value"  value="All" display="All"></block>
+</block>
+
+</column>
+<column name="Security_No." visible="">
+<block  value="[Positions].[Security_No.]" display="[Positions].[Security_No.]"></block>
+<block  value="[Fixed].[Security_No.]" display="[Fixed].[Security_No.]"></block>
+
+</column>
+<column name="Percent" visible="">
+<block  type="Switch" >
+<block  value="[ReclassPos].[Percent]" display="[ReclassPos].[Percent]"></block>
+<block  type="Value"  value="&#60;&#62;" display="&#60;&#62;"></block>
+<block  type="Value"  value=""></block>
+<block  type="Calculate" >
+<block  value="[ReclassPos].[Percent]" display="[ReclassPos].[Percent]"></block>
+<block  type="Value"  value="/" display="/"></block>
+<block  type="Value"  value="100" iValue="100" display="100"></block>
+</block>
+<block  type="Value"  value="1" iValue="1" display="1"></block>
+</block>
+</column>
+<column name="Rating" visible="">
+<block  value="[Fixed].[Credit_Rating]" display="[Fixed].[Credit_Rating]"></block>
+</column>
+<column name="XDate" visible="true">
+<block  type="Format" >
+<block  type="Switch" >
+<block  type="Find" >
+<block  value="[Out].[Instrument_Description]" display="[Out].[Instrument_Description]"></block>
+<block  type="Value"  value=" DUE " display=" DUE "></block>
+<block  type="Value"  value="Count" display="Count"></block>
+</block>
+<block  type="Value"  value="&#62;" display="&#62;"></block>
+<block  type="Value"  value="0" iValue="0" display="0"></block>
+<block  type="SubString" >
+<block  value="[Out].[Instrument_Description]" display="[Out].[Instrument_Description]"></block>
+<block  type="Calculate" >
+<block  type="Find" >
+<block  value="[Out].[Instrument_Description]" display="[Out].[Instrument_Description]"></block>
+<block  type="Value"  value=" DUE " display=" DUE "></block>
+<block  type="value"  value="Index" display="Index"></block>
+</block>
+<block  type="value"  value="+" display="+"></block>
+<block  type="Value"  value="5" iValue="5" display="5"></block>
+</block>
+<block  type="Value"  value="10" iValue="10" display="10"></block>
+</block>
+<block  type="Value"  value=""></block>
+</block>
+<block  type="Value"  value="yyyy-MM-dd" display="yyyy-MM-dd"></block>
+<block  type="value"  value="[enter_value]" display="[enter_value]"></block>
+</block>
+</column>
+<column name="Maturity" visible="">
+<block  type="Switch" >
+<block  value="[Out].[XDate]" display="[Out].[XDate]"></block>
+<block  type="Value"  value="&#60;&#62;" display="&#60;&#62;"></block>
+<block  type="Value"  value=""></block>
+<block  type="Format" >
+<block  value="[Out].[XDate]" display="[Out].[XDate]"></block>
+<block  type="Value"  value="yyyy-MM-dd" display="yyyy-MM-dd"></block>
+<block  type="Value"  value="MM/dd/yyyy" display="MM/dd/yyyy"></block>
+</block>
+<block  type="Value"  value=""></block>
+</block>
+</column>
+<column name="Coupon" visible="">
+<block  type="Switch" >
+<block  type="Find" >
+<block  value="[Positions].[Instrument_Description]" display="[Positions].[Instrument_Description]"></block>
+<block  type="Value"  value="%" display="%"></block>
+<block  type="Value"  value="Count" display="Count"></block>
+</block>
+<block  type="Value"  value="=" display="="></block>
+<block  type="Value"  value="0" iValue="0" display="0"></block>
+<block  type="Value"  value=""></block>
+<block  type="ToSplit" >
+<block  type="ToSplit" >
+<block  value="[Positions].[Instrument_Description]" display="[Positions].[Instrument_Description]"></block>
+<block  type="Value"  value="%" display="%"></block>
+<block  type="value"  value="1" iValue="1" display="1"></block>
+</block>
+<block  type="Value"  value=" "></block>
+<block  type="Calculate" >
+<block  type="Find" >
+<block  type="ToSplit" >
+<block  value="[Positions].[Instrument_Description]" display="[Positions].[Instrument_Description]"></block>
+<block  type="Value"  value="%" display="%"></block>
+<block  type="value"  value="1" iValue="1" display="1"></block>
+</block>
+<block  type="Value"  value=" "></block>
+<block  type="Value"  value="Count" display="Count"></block>
+</block>
+<block  type="value"  value="+" display="+"></block>
+<block  type="Value"  value="1" iValue="1" display="1"></block>
+</block>
+</block>
+</block>
+</column>
+<column name="Issuer" visible="">
+<block  value="[Fixed].[Issuer]" display="[Fixed].[Issuer]"></block>
+</column>
+<column name="Price_(Security)" visible="">
+<block  value="[Positions].[Price_(Security)]" display="[Positions].[Price_(Security)]"></block>
+</column>
+<column name="AssetClass" visible="">
+<block  type="Switch" >
+<block  value="[ReclassPos].[AssetClass]" display="[ReclassPos].[AssetClass]"></block>
+<block  type="Value"  value="=" display="="></block>
+<block  type="Value"  value=""></block>
+<block  value="[Positions].[AssetClass]" display="[Positions].[AssetClass]"></block>
+<block  value="[ReclassPos].[AssetClass]" display="[ReclassPos].[AssetClass]"></block>
+</block>
+</column>
+<column name="TacClassification" visible="">
+<block  type="Switch" >
+<block  value="[ReclassPos].[TAC_AssetClass]" display="[ReclassPos].[TAC_AssetClass]"></block>
+<block  type="value"  value="=" display="="></block>
+<block  type="Value"  value=""></block>
+<block  value="[Positions].[TacClassification]" display="[Positions].[TacClassification]"></block>
+<block  value="[ReclassPos].[TAC_AssetClass]" display="[ReclassPos].[TAC_AssetClass]"></block>
+</block>
+</column>
+<column name="Country" visible="">
+<block  value="[Positions].[Country]" display="[Positions].[Country]"></block>
+</column>
+<column name="Sector" visible="">
+<block  value="[Positions].[Sector]" display="[Positions].[Sector]"></block>
+</column>
+<column name="FI_Type" visible="">
+<block  type="Switch" >
+<block  value="[ReclassPos].[FI_Type]" display="[ReclassPos].[FI_Type]"></block>
+<block  type="Value"  value="&#60;&#62;" display="&#60;&#62;"></block>
+<block  type="Value"  value=""></block>
+<block  value="[ReclassPos].[FI_Type]" display="[ReclassPos].[FI_Type]"></block>
+<block  value="[Fixed].[FI_Type]" display="[Fixed].[FI_Type]"></block>
+</block>
+</column>
+<column name="TAC_AssetClass" visible="">
+<block  value="[ReclassPos].[TAC_AssetClass]" display="[ReclassPos].[TAC_AssetClass]"></block>
+</column>
+<column name="Price" visible="">
+<block  value="[ReclassPos].[Price]" display="[ReclassPos].[Price]"></block>
+</column>
+<column name="Duration" visible="">
+<block  value="[ReclassPos].[Duration]" display="[ReclassPos].[Duration]"></block>
+</column>
+</columns>
+<filters>
+<block  type="Filter" >
+<block  value="[Out].[Instrument_Description]" display="[Out].[Instrument_Description]"></block>
+<block  type="value"  value="&#60;&#62;" display="&#60;&#62;"></block>
+<block  type="value"  value=""></block>
+</block>
+<block  type="Filter" >
+<block  value="[Out].[Security_No.]" display="[Out].[Security_No.]"></block>
+<block  type="value"  value="&#60;&#62;" display="&#60;&#62;"></block>
+<block  type="value"  value=""></block>
+</block>
+</filters>
+</statement>
+</caswilxml>

@@ -1,0 +1,131 @@
+<?xml version="1.0"?>
+<caswilxml xmlns:ns0="http://Caswil">
+<statement lastWritten="2018-09-11T17:58:02669">
+<sources>
+<source name="IPS_Clean" description="">
+<connection filename="xml\DS_Compliance_IPS_Clean.Caswil.ST.Xml" type="Statement" header="" format="" headerIncluded="True" previewSize="0" previewMode="False" includeFilename="False" includeRowIndex="False" />
+</source>
+<source name="Overwrite" description="">
+<connection filename="xml\DS__Source_DataBind_Portfolios.Caswil.ST.Xml" type="Statement" header="" format="" headerIncluded="True" previewSize="0" previewMode="False" includeFilename="False" includeRowIndex="False" />
+</source>
+</sources>
+<columns>
+<column name="Portfolio_Name" visible="">
+<block  value="[IPS_Clean].[Portfolio_Name]" display="[IPS_Clean].[Portfolio_Name]"></block>
+<block  value="[Overwrite].[Portfolio_IPS]" display="[Overwrite].[Portfolio_IPS]"></block>
+
+</column>
+<column name="Portfolio" visible="">
+<block  type="Switch" >
+<block  value="[Overwrite].[Portfolio_Overwrite]" display="[Overwrite].[Portfolio_Overwrite]"></block>
+<block  type="value"  value="=" display="="></block>
+<block  type="Value"  value=""></block>
+<block  value="[IPS_Clean].[Portfolio_Name]" display="[IPS_Clean].[Portfolio_Name]"></block>
+<block  value="[Overwrite].[Portfolio_Overwrite]" display="[Overwrite].[Portfolio_Overwrite]"></block>
+</block>
+</column>
+<column name="Accounts" visible="">
+<block  type="Switch" >
+<block  value="[Overwrite].[Accounts]" display="[Overwrite].[Accounts]"></block>
+<block  type="value"  value="=" display="="></block>
+<block  type="Value"  value=""></block>
+<block  value="[IPS_Clean].[Accounts]" display="[IPS_Clean].[Accounts]"></block>
+<block  value="[Overwrite].[Accounts]" display="[Overwrite].[Accounts]"></block>
+</block>
+</column>
+<column name="CashEq_MIN" visible="">
+<block  value="[IPS_Clean].[CashEq_MIN]" display="[IPS_Clean].[CashEq_MIN]"></block>
+</column>
+<column name="CashEq_TRGT" visible="">
+<block  type="Switch" >
+<block  value="[Overwrite].[Target_Cash]" display="[Overwrite].[Target_Cash]"></block>
+<block  type="value"  value="=" display="="></block>
+<block  type="Value"  value=""></block>
+<block  value="[IPS_Clean].[CashEq_TRGT]" display="[IPS_Clean].[CashEq_TRGT]"></block>
+<block  value="[Overwrite].[Target_Cash]" display="[Overwrite].[Target_Cash]"></block>
+</block>
+</column>
+<column name="CashEq_MAX" visible="">
+<block  value="[IPS_Clean].[CashEq_MAX]" display="[IPS_Clean].[CashEq_MAX]"></block>
+</column>
+<column name="Equity_MIN" visible="">
+<block  value="[IPS_Clean].[Equity_MIN]" display="[IPS_Clean].[Equity_MIN]"></block>
+</column>
+<column name="Equity_TRGT" visible="">
+<block  type="Switch" >
+<block  value="[Overwrite].[Target_Eq]" display="[Overwrite].[Target_Eq]"></block>
+<block  type="value"  value="=" display="="></block>
+<block  type="Value"  value=""></block>
+<block  value="[IPS_Clean].[Equity_TRGT]" display="[IPS_Clean].[Equity_TRGT]"></block>
+<block  value="[Overwrite].[Target_Eq]" display="[Overwrite].[Target_Eq]"></block>
+</block>
+</column>
+<column name="Equity_MAX" visible="">
+<block  value="[IPS_Clean].[Equity_MAX]" display="[IPS_Clean].[Equity_MAX]"></block>
+</column>
+<column name="Fixed_Inc_MIN" visible="">
+<block  value="[IPS_Clean].[Fixed_Inc_MIN]" display="[IPS_Clean].[Fixed_Inc_MIN]"></block>
+</column>
+<column name="Fixed_Inc_TRGT" visible="">
+<block  type="Switch" >
+<block  value="[Overwrite].[Target_FI]" display="[Overwrite].[Target_FI]"></block>
+<block  type="value"  value="=" display="="></block>
+<block  type="Value"  value=""></block>
+<block  value="[IPS_Clean].[Fixed_Inc_TRGT]" display="[IPS_Clean].[Fixed_Inc_TRGT]"></block>
+<block  value="[Overwrite].[Target_FI]" display="[Overwrite].[Target_FI]"></block>
+</block>
+</column>
+<column name="Fixed_Inc_MAX" visible="">
+<block  value="[IPS_Clean].[Fixed_Inc_MAX]" display="[IPS_Clean].[Fixed_Inc_MAX]"></block>
+</column>
+<column name="Alt_MIN" visible="">
+<block  value="[IPS_Clean].[Alt_MIN]" display="[IPS_Clean].[Alt_MIN]"></block>
+</column>
+<column name="Alt_TRGT" visible="">
+<block  type="Switch" >
+<block  value="[Overwrite].[Target_Alts]" display="[Overwrite].[Target_Alts]"></block>
+<block  type="value"  value="=" display="="></block>
+<block  type="Value"  value=""></block>
+<block  value="[IPS_Clean].[Alt_TRGT]" display="[IPS_Clean].[Alt_TRGT]"></block>
+<block  value="[Overwrite].[Target_Alts]" display="[Overwrite].[Target_Alts]"></block>
+</block>
+</column>
+<column name="Alt_MAX" visible="">
+<block  value="[IPS_Clean].[Alt_MAX]" display="[IPS_Clean].[Alt_MAX]"></block>
+</column>
+<column name="Foreign_MIN" visible="">
+<block  value="[IPS_Clean].[Foreign_MIN]" display="[IPS_Clean].[Foreign_MIN]"></block>
+</column>
+<column name="Foreign_TRGT" visible="">
+<block  value="[IPS_Clean].[Foreign_TRGT]" display="[IPS_Clean].[Foreign_TRGT]"></block>
+</column>
+<column name="Foreign_MAX" visible="">
+<block  value="[IPS_Clean].[Foreign_MAX]" display="[IPS_Clean].[Foreign_MAX]"></block>
+</column>
+<column name="PM_Code" visible="">
+<block  type="Switch" >
+<block  value="[Overwrite].[PM_Code]" display="[Overwrite].[PM_Code]"></block>
+<block  type="value"  value="=" display="="></block>
+<block  type="Value"  value=""></block>
+<block  value="[IPS_Clean].[PM_Code]" display="[IPS_Clean].[PM_Code]"></block>
+<block  value="[Overwrite].[PM_Code]" display="[Overwrite].[PM_Code]"></block>
+</block>
+</column>
+<column name="PortfolioClass" visible="">
+<block  value="[IPS_Clean].[PortfolioClass]" display="[IPS_Clean].[PortfolioClass]"></block>
+</column>
+<column name="Accounts_warnings" visible="">
+<block  value="[Overwrite].[Accounts_warnings]" display="[Overwrite].[Accounts_warnings]"></block>
+</column>
+<column name="Accounts_excluded" visible="">
+<block  value="[Overwrite].[Accounts_excluded]" display="[Overwrite].[Accounts_excluded]"></block>
+</column>
+<column name="Note" visible="">
+<block  value="[Overwrite].[Note]" display="[Overwrite].[Note]"></block>
+</column>
+<column name="CCW" visible="">
+<block  value="[Overwrite].[CCW]" display="[Overwrite].[CCW]"></block>
+</column>
+</columns>
+</statement>
+</caswilxml>

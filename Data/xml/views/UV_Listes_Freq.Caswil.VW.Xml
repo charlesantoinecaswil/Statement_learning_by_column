@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<caswilxml xmlns:ns0="http://Caswil">
+<view state="Maximized" top="-8" left="-8" width="1936" height="1056">
+	<user>skhuong</user>
+	<tile title="newTile" guid="Z6505Y">
+		<sources>
+			<source name="" description="New Source">
+				<connection  datapath="xml\UV_File12_Data_source_parameters_Freq_Change_Final_UNION_List.Caswil.ST.Xml" datatype="Statement" header="CountParam" includefilename="False" includeheader="False" includerowindex="False" previewmode="False" previewsize="0"/>
+			</source>
+		</sources>
+		<position top="439" left="0" width="1916" height="527"/>
+		<displays current="0">
+			<display colorOfChanged="173,216,230">
+				<options></options>
+				<serie transparency="" axistype="Primary">
+					<type>grid</type>
+					<columns>
+						<column src="Type_de_list_EN">Type_de_list_EN</column>
+						<column src="Type_de_liste_FR">Type_de_liste_FR</column>
+						<column src="Nom_Anglais">Nom_Anglais</column>
+						<column src="Nom_Français">Nom_Français</column>
+						<column src="Count" format="#,##0" align="right">Count</column>
+						<column src="COMPTE">COMPTE</column>
+						<column src="GrpCls">GrpCls</column>
+					</columns>
+					<xcolumn></xcolumn>
+					<ycolumn></ycolumn>
+					<events>
+					</events>
+				</serie>
+			</display>
+		</displays>
+	</tile>
+	<tile title="newTile" guid="U9496U">
+		<sources>
+			<source name="" description="New Source">
+				<connection  datapath="xml\UV_File12_Data_source_parameters_Freq_Change_Final_UNION.Caswil.ST.Xml" datatype="Statement" header="GROUPE" includefilename="False" includeheader="False" includerowindex="False" previewmode="False" previewsize="0"/>
+			</source>
+		</sources>
+		<position top="0" left="0" width="1916" height="439"/>
+		<displays current="0">
+			<display colorOfChanged="173,216,230">
+				<options></options>
+				<serie transparency="" axistype="Primary">
+					<type>grid</type>
+					<columns>
+						<column src="GROUPE">GROUPE</column>
+						<column src="CLASSE">CLASSE</column>
+						<column src="Type_de_list_EN">Type_de_list_EN</column>
+						<column src="Type_de_liste_FR">Type_de_liste_FR</column>
+						<column src="Nom_Anglais">Nom_Anglais</column>
+						<column src="Nom_Français">Nom_Français</column>
+						<column src="DATE_EFFECTIVE_MALADIE" format="yyyy-MM-dd">DATE_EFFECTIVE_MALADIE</column>
+					</columns>
+					<xcolumn></xcolumn>
+					<ycolumn></ycolumn>
+					<events>
+					</events>
+				</serie>
+			</display>
+		</displays>
+	</tile>
+</view>
+</caswilxml>

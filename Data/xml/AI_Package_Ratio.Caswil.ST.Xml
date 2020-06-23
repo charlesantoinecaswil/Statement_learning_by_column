@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<caswilxml xmlns:ns0="http://Caswil">
+<statement lastWritten="2020-05-19T16:05:11002">
+<sources>
+<source name="Numerator" description="">
+<connection filename="xml\AI_Synthetic_Numerator.Caswil.ST.Xml" type="Statement" header="" format="" headerIncluded="True" previewSize="0" previewMode="False" includeFilename="False" includeRowIndex="False" />
+</source>
+<source name="Denominator" description="" stStyle="AI_Synthetic_Allocation_Denominator">
+<connection filename="xml\AI_Synthetic_Numerator.Caswil.ST.Xml" type="Statement" header="" format="" headerIncluded="True" previewSize="0" previewMode="False" includeFilename="False" includeRowIndex="False" />
+</source>
+</sources>
+<columns>
+<column name="Syn_Num_Col" visible="">
+<block  value="[Numerator].[Syn_Num_Col]" display="[Numerator].[Syn_Num_Col]"></block>
+</column>
+<column name="ValueNum" visible="">
+<block  value="[Numerator].[Value]" display="[Numerator].[Value]"></block>
+</column>
+<column name="Ratio" visible="">
+<block  type="Format" >
+<block  type="Calculate" >
+<block  value="[Numerator].[Value]" display="[Numerator].[Value]"></block>
+<block  type="Value"  value="/" display="/"></block>
+<block  value="[Denominator].[Value]" display="[Denominator].[Value]"></block>
+</block>
+<block  type="Value"  value="#,##0.00" display="#,##0.00"></block>
+<block  type="value"  value="[enter_value]" display="[enter_value]"></block>
+</block>
+</column>
+<column name="ValueDenum" visible="">
+<block  value="[Denominator].[Value]" display="[Denominator].[Value]"></block>
+</column>
+<column name="Syn_Denum_Col" visible="">
+<block  value="[Numerator].[Syn_Denum_Col]" display="[Numerator].[Syn_Denum_Col]"></block>
+<block  value="[Denominator].[Syn_Denum_Col]" display="[Denominator].[Syn_Denum_Col]"></block>
+
+</column>
+</columns>
+<stStyles>
+	<stStyle name="AI_Synthetic_Allocation_Denominator">
+		<columns>
+			<column name="Syn_Denum_Col" visible="True" groupby="select">
+<block  value="[In].[Syn_Denum_Col]" display="[In].[Syn_Denum_Col]"></block>
+			</column>
+			<column name="Value" visible="True" groupby="sum">
+<block  value="[In].[Value]" display="[In].[Value]"></block>
+			</column>
+		</columns>
+	</stStyle>
+</stStyles>
+</statement>
+</caswilxml>

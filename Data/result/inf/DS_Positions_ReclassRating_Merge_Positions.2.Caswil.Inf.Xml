@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<caswilxml xmlns:ns0="http://Caswil">
+<statement>DS_Positions_ReclassRating_Merge_Positions.Caswil.ST.Xml</statement>
+<parameters>
+<parameter name="dataFolder">C:\Users\Charles-Antoine\Desktop\AI_Package_Ratio\AI_Package_Ratio\data</parameter>
+<parameter name="TacClassification">Cash|Fixed|Eq Can|Eq US|Eq Intl|Alts|Other</parameter>
+<parameter name="FIAllocation">1|Preferreds|20|2|GIC|20|3|Government|5|4|Corporate|35|5|Corp HY|20</parameter>
+</parameters>
+<sources>
+<source CRC="0" lastWritten="2020-06-04T13:46:16005" header="" originalValue="xml\DS__Source_ClientLink_Positions_Last.Caswil.ST.Xml">..\app\result\DS__Source_ClientLink_Positions_Last.1.Caswil.Csw</source>
+<source CRC="0" lastWritten="2020-06-17T11:33:49392" header="Instrument" originalValue="xml\DS_Positions_RatingReclass.Caswil.ST.Xml">..\app\result\DS_Positions_RatingReclass.2.Caswil.Csw</source>
+</sources>
+</caswilxml>

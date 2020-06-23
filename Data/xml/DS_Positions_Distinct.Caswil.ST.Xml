@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<caswilxml xmlns:ns0="http://Caswil">
+<statement lastWritten="2018-06-29T14:08:36882">
+<sources>
+<source name="Positions" description="">
+<connection filename="xml\DS__Source_ClientLink_Positions_Last.Caswil.ST.Xml" type="Statement" header="" format="" headerIncluded="True" previewSize="0" previewMode="False" includeFilename="False" includeRowIndex="False" />
+</source>
+</sources>
+<columns>
+<column name="Instrument_Description" visible="" groupby="select">
+<block  value="[Positions].[Instrument_Description]" display="[Positions].[Instrument_Description]"></block>
+</column>
+<column name="Price_(Security)" visible="" groupby="max">
+<block  value="[Positions].[Price_(Security)]" display="[Positions].[Price_(Security)]"></block>
+</column>
+<column name="Security_No." visible="" groupby="select">
+<block  value="[Positions].[Security_No.]" display="[Positions].[Security_No.]"></block>
+</column>
+<column name="AssetClass" visible="" groupby="select">
+<block  value="[Positions].[AssetClass]" display="[Positions].[AssetClass]"></block>
+</column>
+<column name="Country" visible="" groupby="select">
+<block  value="[Positions].[Country]" display="[Positions].[Country]"></block>
+</column>
+<column name="Sector" visible="" groupby="select">
+<block  value="[Positions].[Sector]" display="[Positions].[Sector]"></block>
+</column>
+<column name="TacClassification" visible="" groupby="select">
+<block  value="[Positions].[TacClassification]" display="[Positions].[TacClassification]"></block>
+</column>
+</columns>
+</statement>
+</caswilxml>

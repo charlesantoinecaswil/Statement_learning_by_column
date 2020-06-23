@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<caswilxml xmlns:ns0="http://Caswil">
+<statement>DS__Source_ClientLink_Models_Last.Caswil.ST.Xml</statement>
+<parameters>
+<parameter name="dataFolder">C:\Users\Charles-Antoine\Desktop\AI_Package_Ratio\AI_Package_Ratio\data</parameter>
+</parameters>
+<sources>
+<source CRC="0" lastWritten="1920-06-17T11:33:52404" reachable="false" originalValue="[parameter].[dataFolder]\Model*{last}.csv" FileNotFound="true"></source>
+</sources>
+</caswilxml>

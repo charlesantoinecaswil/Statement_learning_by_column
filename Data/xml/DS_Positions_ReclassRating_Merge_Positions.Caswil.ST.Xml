@@ -1,0 +1,148 @@
+<?xml version="1.0"?>
+<caswilxml xmlns:ns0="http://Caswil">
+<statement lastWritten="2018-11-28T14:08:53535">
+<sources>
+<source name="Positions" description="">
+<connection filename="xml\DS__Source_ClientLink_Positions_Last.Caswil.ST.Xml" type="Statement" header="" format="" headerIncluded="True" previewSize="0" previewMode="False" includeFilename="False" includeRowIndex="False" />
+</source>
+<source name="RatingReclass" description="">
+<connection filename="xml\DS_Positions_RatingReclass.Caswil.ST.Xml" type="Statement" header="Instrument" format="" headerIncluded="True" previewSize="0" previewMode="False" includeFilename="False" includeRowIndex="False" />
+</source>
+</sources>
+<columns>
+<column name="AccountCode" visible="True">
+<block  value="[Positions].[AccountCode]" display="[Positions].[AccountCode]"></block>
+</column>
+<column name="AccountName" visible="True">
+<block  value="[Positions].[AccountName]" display="[Positions].[AccountName]"></block>
+</column>
+<column name="Quantity" visible="True">
+<block  type="Calculate" >
+<block  value="[Positions].[Quantity]" display="[Positions].[Quantity]"></block>
+<block  type="Value"  value="*" display="*"></block>
+<block  value="[RatingReclass].[Percent]" display="[RatingReclass].[Percent]"></block>
+</block>
+</column>
+<column name="Cost" visible="True">
+<block  type="Calculate" >
+<block  value="[Positions].[Cost]" display="[Positions].[Cost]"></block>
+<block  type="Value"  value="*" display="*"></block>
+<block  value="[RatingReclass].[Percent]" display="[RatingReclass].[Percent]"></block>
+</block>
+</column>
+<column name="MV&#40;CAD&#41;" visible="True">
+<block  type="Calculate" >
+<block  value="[Positions].[MV&#40;CAD&#41;]" display="[Positions].[MV&#40;CAD&#41;]"></block>
+<block  type="Value"  value="*" display="*"></block>
+<block  value="[RatingReclass].[Percent]" display="[RatingReclass].[Percent]"></block>
+</block>
+</column>
+<column name="Instrument_Description" visible="True">
+<block  value="[Positions].[Instrument_Description]" display="[Positions].[Instrument_Description]"></block>
+</column>
+<column name="Instrument_Currency" visible="True">
+<block  value="[Positions].[Instrument_Currency]" display="[Positions].[Instrument_Currency]"></block>
+</column>
+<column name="Symbol" visible="True">
+<block  value="[Positions].[Symbol]" display="[Positions].[Symbol]"></block>
+</column>
+<column name="Base_Currency_Code" visible="True">
+<block  value="[Positions].[Base_Currency_Code]" display="[Positions].[Base_Currency_Code]"></block>
+</column>
+<column name="Price_&#40;Security&#41;" visible="True">
+<block  value="[Positions].[Price_&#40;Security&#41;]" display="[Positions].[Price_&#40;Security&#41;]"></block>
+</column>
+<column name="Client_Name" visible="True">
+<block  value="[Positions].[Client_Name]" display="[Positions].[Client_Name]"></block>
+</column>
+<column name="Security_No." visible="True">
+<block  value="[Positions].[Security_No.]" display="[Positions].[Security_No.]"></block>
+<block  value="[RatingReclass].[Security_No.]" display="[RatingReclass].[Security_No.]"></block>
+
+</column>
+<column name="AssetClass" visible="True">
+<block  value="[Positions].[AssetClass]" display="[Positions].[AssetClass]"></block>
+</column>
+<column name="Country" visible="True">
+<block  value="[Positions].[Country]" display="[Positions].[Country]"></block>
+</column>
+<column name="Sector" visible="True">
+<block  value="[Positions].[Sector]" display="[Positions].[Sector]"></block>
+</column>
+<column name="CUSIP" visible="True">
+<block  value="[Positions].[CUSIP]" display="[Positions].[CUSIP]"></block>
+</column>
+<column name="MV_Base" visible="True">
+<block  value="[Positions].[MV_Base]" display="[Positions].[MV_Base]"></block>
+</column>
+<column name="AccountCodeShort" visible="True">
+<block  value="[Positions].[AccountCodeShort]" display="[Positions].[AccountCodeShort]"></block>
+</column>
+<column name="TacClassification" visible="True">
+<block  value="[RatingReclass].[TacClassification]" display="[RatingReclass].[TacClassification]"></block>
+</column>
+<column name="Rating" visible="">
+<block  value="[RatingReclass].[Rating]" display="[RatingReclass].[Rating]"></block>
+</column>
+<column name="Maturity" visible="">
+<block  value="[RatingReclass].[Maturity]" display="[RatingReclass].[Maturity]"></block>
+</column>
+<column name="Coupon" visible="">
+<block  value="[RatingReclass].[Coupon]" display="[RatingReclass].[Coupon]"></block>
+</column>
+<column name="Issuer" visible="">
+<block  value="[RatingReclass].[Issuer]" display="[RatingReclass].[Issuer]"></block>
+</column>
+<column name="valdate" visible="">
+<block  value="[Positions].[valdate]" display="[Positions].[valdate]"></block>
+</column>
+<column name="Market_Value" visible="">
+<block  type="Calculate" >
+<block  value="[Positions].[Market_Value]" display="[Positions].[Market_Value]"></block>
+<block  type="Value"  value="*" display="*"></block>
+<block  value="[RatingReclass].[Percent]" display="[RatingReclass].[Percent]"></block>
+</block>
+</column>
+<column name="Cost_&#40;CAD&#41;" visible="">
+<block  type="Calculate" >
+<block  value="[Positions].[Cost_&#40;CAD&#41;]" display="[Positions].[Cost_&#40;CAD&#41;]"></block>
+<block  type="Value"  value="*" display="*"></block>
+<block  value="[RatingReclass].[Percent]" display="[RatingReclass].[Percent]"></block>
+</block>
+</column>
+<column name="FI_Type" visible="">
+<block  value="[RatingReclass].[FI_Type]" display="[RatingReclass].[FI_Type]"></block>
+</column>
+<column name="OptionType" visible="">
+<block  value="[Positions].[OptionType]" display="[Positions].[OptionType]"></block>
+</column>
+<column name="OptionSymbol" visible="">
+<block  value="[Positions].[OptionSymbol]" display="[Positions].[OptionSymbol]"></block>
+</column>
+<column name="OptionExpiration" visible="">
+<block  value="[Positions].[OptionExpiration]" display="[Positions].[OptionExpiration]"></block>
+</column>
+<column name="OptionStrike" visible="">
+<block  value="[Positions].[OptionStrike]" display="[Positions].[OptionStrike]"></block>
+</column>
+<column name="Locked" visible="">
+<block  value="[Positions].[Locked]" display="[Positions].[Locked]"></block>
+</column>
+<column name="AcctType" visible="">
+<block  value="[Positions].[AcctType]" display="[Positions].[AcctType]"></block>
+</column>
+</columns>
+<filters>
+<block  type="Filter" >
+<block  value="[Out].[AccountCode]" display="[Out].[AccountCode]"></block>
+<block  type="value"  value="&#60;&#62;" display="&#60;&#62;"></block>
+<block  type="value"  value=""></block>
+</block>
+<block  type="Filter" >
+<block  value="[Out].[Instrument_Description]" display="[Out].[Instrument_Description]"></block>
+<block  type="value"  value="&#60;&#62;" display="&#60;&#62;"></block>
+<block  type="value"  value=""></block>
+</block>
+</filters>
+</statement>
+</caswilxml>

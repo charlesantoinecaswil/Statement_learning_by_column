@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<caswilxml xmlns:ns0="http://Caswil">
+<statement lastWritten="2018-02-08T23:52:5312">
+<sources>
+<source name="Position" description="">
+<connection filename="..\DS_DataBind*{last}.xls*{Positions}" type="CSV" header="Instrument Description" format="" headerIncluded="False" previewSize="0" previewMode="False" includeFilename="False" includeRowIndex="False" />
+</source><source name="TotalControl" description="" stStyle="DS__Source_DataBind_Positions_TotalControl">
+<connection filename="..\DS_DataBind*{last}.xls*{Positions}" type="CSV" header="Instrument Description" format="" headerIncluded="False" previewSize="0" previewMode="False" includeFilename="False" includeRowIndex="False" />
+</source></sources>
+<columns>
+<column name="Instrument_Description" visible="">
+<block  value="[Position].[Instrument_Description]" display="[Position].[Instrument_Description]"></block>
+<block  type="value"  value="[TotalControl].[Instrument_Description]" display="[TotalControl].[Instrument_Description]"></block>
+
+</column>
+<column name="Percent" visible="">
+<block  value="[Position].[Percent]" display="[Position].[Percent]"></block>
+</column>
+<column name="AssetClass" visible="">
+<block  value="[Position].[AssetClass]" display="[Position].[AssetClass]"></block>
+</column>
+<column name="Sector" visible="">
+<block  value="[Position].[Sector]" display="[Position].[Sector]"></block>
+</column>
+<column name="TAC_AssetClass" visible="">
+<block  value="[Position].[TAC_AssetClass]" display="[Position].[TAC_AssetClass]"></block>
+</column>
+<column name="FI_Type" visible="">
+<block  value="[Position].[FI_Type]" display="[Position].[FI_Type]"></block>
+</column>
+<column name="Price" visible="">
+<block  value="[Position].[Price]" display="[Position].[Price]"></block>
+</column>
+<column name="Coupon" visible="">
+<block  value="[Position].[Coupon]" display="[Position].[Coupon]"></block>
+</column>
+<column name="Maturity" visible="">
+<block  value="[Position].[Maturity]" display="[Position].[Maturity]"></block>
+</column>
+<column name="Duration" visible="">
+<block  value="[Position].[Duration]" display="[Position].[Duration]"></block>
+</column>
+<column name="Percent_Total" visible="">
+<block  value="[TotalControl].[Percent]" display="[TotalControl].[Percent]"></block>
+</column>
+</columns>
+<filters>
+<block  type="Filter" >
+<block  value="[Out].[Percent_Total]"></block>
+<block  type="value"  value="&#60;=" display="&#60;="></block>
+<block  type="value"  value="100" iValue="100" display="100"></block>
+</block>
+</filters>
+<stStyles>
+	<stStyle name="DS__Source_DataBind_Positions_TotalControl">
+		<columns>
+			<column name="Instrument_Description" visible="True" groupby="select">
+<block  value="[In].[Instrument_Description]" display="[In].[Instrument_Description]"></block>
+			</column>
+			<column name="Percent" visible="True" groupby="sum">
+<block  type="Switch" >
+<block  value="[In].[Percent]" display="[In].[Percent]"></block>
+<block  type="Value"  value="&#60;&#62;" display="&#60;&#62;"></block>
+<block  type="Value"  value=""></block>
+<block  value="[In].[Percent]" display="[In].[Percent]"></block>
+<block  type="Value"  value="100" iValue="100" display="100"></block>
+</block>
+			</column>
+			<column name="TAC_AssetClass" visible="True">
+<block  value="[In].[TAC_AssetClass]" display="[In].[TAC_AssetClass]"></block>
+			</column>
+			<column name="FI_Type" visible="True">
+<block  value="[In].[FI_Type]" display="[In].[FI_Type]"></block>
+			</column>
+			<column name="AssetClass" visible="True">
+<block  value="[In].[AssetClass]" display="[In].[AssetClass]"></block>
+			</column>
+			<column name="Sector" visible="True">
+<block  value="[In].[Sector]" display="[In].[Sector]"></block>
+			</column>
+			<column name="Coupon" visible="True">
+<block  value="[In].[Coupon]" display="[In].[Coupon]"></block>
+			</column>
+			<column name="Maturity" visible="True">
+<block  value="[In].[Maturity]" display="[In].[Maturity]"></block>
+			</column>
+			<column name="Duration" visible="True">
+<block  value="[In].[Duration]" display="[In].[Duration]"></block>
+			</column>
+		</columns>
+	</stStyle>
+</stStyles>
+</statement>
+</caswilxml>

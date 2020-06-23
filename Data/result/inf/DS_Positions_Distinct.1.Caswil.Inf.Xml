@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<caswilxml xmlns:ns0="http://Caswil">
+<statement>DS_Positions_Distinct.Caswil.ST.Xml</statement>
+<parameters>
+<parameter name="dataFolder">C:\Users\Charles-Antoine\Desktop\AI_Package_Ratio\AI_Package_Ratio\data</parameter>
+<parameter name="TacClassification">Cash|Fixed|Eq Can|Eq US|Eq Intl|Alts|Other</parameter>
+</parameters>
+<sources>
+<source CRC="0" lastWritten="2018-12-18T23:26:34" header="" originalValue="xml\DS__Source_ClientLink_Positions_Last.Caswil.ST.Xml">..\app\xml\DS__Source_ClientLink_Positions_Last.Caswil.ST.Xml</source>
+</sources>
+</caswilxml>

@@ -1,0 +1,201 @@
+<?xml version="1.0"?>
+<caswilxml xmlns:ns0="http://Caswil">
+<view state="Maximized" top="-8" left="1912" width="1936" height="1056">
+	<user>Charles-Antoine</user>
+	<tile title="newTile" guid="I0497V">
+		<sources>
+			<source name="" description="New Source">
+				<connection  datapath="" datatype="CSV" header="" includefilename="False" includeheader="False" includerowindex="False" previewmode="False" previewsize="0"/>
+			</source>
+		</sources>
+		<position top="0" left="0" width="339" height="170"/>
+		<displays current="0">
+			<display colorOfChanged="173,216,230">
+				<options></options>
+				<serie transparency="" axistype="Primary">
+					<type>grid</type>
+					<columns>
+					</columns>
+					<xcolumn></xcolumn>
+					<ycolumn></ycolumn>
+					<events>
+					</events>
+				</serie>
+			</display>
+			<control name = "ctrl_1" type="combobox" text="[parameter].[new_file]" xposition="80" yposition="69" width="200" height="25" anchor="top|left" >
+				<collection sourcecolumn="" sortby="" sortorder="Ascending">selectfile|liste_fichier_xlsx_properties</collection>
+				<events>
+					<event type="None">
+						<target></target>
+						<parameters>new_file</parameters>
+					</event>
+				</events>
+			</control>
+		</displays>
+	</tile>
+	<tile title="newTile" guid="L2024B">
+		<sources>
+			<source name="" description="New Source">
+				<connection  datapath="xml\UV_SourceSample_New.Caswil.ST.Xml" datatype="Statement" header="GROUPE" includefilename="False" includeheader="False" includerowindex="False" previewmode="False" previewsize="0"/>
+				<connection  datapath="" datatype="CSV" header="" includefilename="False" includeheader="True" includerowindex="False" previewmode="False" previewsize="0"/>
+			</source>
+		</sources>
+		<position top="169" left="9" width="1883" height="799"/>
+		<displays current="0">
+			<display colorOfChanged="173,216,230">
+				<options></options>
+				<serie transparency="" axistype="Primary">
+					<type>grid</type>
+					<columns>
+						<column src="GROUPE">GROUPE</column>
+						<column src="CLASSE">CLASSE</column>
+						<column src="COMPTE">COMPTE</column>
+						<column src="DESCRIPTION_COMPTE">DESCRIPTION_COMPTE</column>
+						<column src="TYPE_COMPTE">TYPE_COMPTE</column>
+						<column src="COMPTE_ACTIF">COMPTE_ACTIF</column>
+						<column src="DATE_CREATION_MALADIE">DATE_CREATION_MALADIE</column>
+						<column src="HEURE_CREATION_MALADIE">HEURE_CREATION_MALADIE</column>
+						<column src="DATE_EFFECTIVE_MALADIE">DATE_EFFECTIVE_MALADIE</column>
+						<column src="AGE_MAX_MALADIE">AGE_MAX_MALADIE</column>
+						<column src="FRANCHISE_COMMUNE_MALADIE">FRANCHISE_COMMUNE_MALADIE</column>
+						<column src="FRANCHISE_INDIVIDUELLE_MALADIE">FRANCHISE_INDIVIDUELLE_MALADIE</column>
+						<column src="FRANCHISE_ASSURE_CONTRAT_MALADIE">FRANCHISE_ASSURE_CONTRAT_MALADIE</column>
+						<column src="FRANCHISE_ASSURE_APPLIQUEE_MALADIE">FRANCHISE_ASSURE_APPLIQUEE_MALADIE</column>
+						<column src="FRANCHISE_FAMILLE_CONTRAT_MALADIE">FRANCHISE_FAMILLE_CONTRAT_MALADIE</column>
+						<column src="FRANCHISE_FAMILLE_APPLIQUEE_MALADIE">FRANCHISE_FAMILLE_APPLIQUEE_MALADIE</column>
+						<column src="FRANCHISE_COUPLE_CONTRAT_MALADIE">FRANCHISE_COUPLE_CONTRAT_MALADIE</column>
+						<column src="FRANCHISE_COUPLE_APPLIQUEE_MALADIE">FRANCHISE_COUPLE_APPLIQUEE_MALADIE</column>
+						<column src="FRANCHISE_MONO_CONTRAT_MALADIE">FRANCHISE_MONO_CONTRAT_MALADIE</column>
+						<column src="FRANCHISE_MONO_APPLIQUEE_MALADIE">FRANCHISE_MONO_APPLIQUEE_MALADIE</column>
+						<column src="REGROUPEMENT_01_MALADIE">REGROUPEMENT_01_MALADIE</column>
+						<column src="REGROUPEMENT_02_MALADIE">REGROUPEMENT_02_MALADIE</column>
+						<column src="REGROUPEMENT_03_MALADIE">REGROUPEMENT_03_MALADIE</column>
+						<column src="REGROUPEMENT_04_MALADIE">REGROUPEMENT_04_MALADIE</column>
+						<column src="REGROUPEMENT_05_MALADIE">REGROUPEMENT_05_MALADIE</column>
+						<column src="REGROUPEMENT_06_MALADIE">REGROUPEMENT_06_MALADIE</column>
+						<column src="REGROUPEMENT_07_MALADIE">REGROUPEMENT_07_MALADIE</column>
+						<column src="REGROUPEMENT_08_MALADIE">REGROUPEMENT_08_MALADIE</column>
+						<column src="REGROUPEMENT_09_MALADIE">REGROUPEMENT_09_MALADIE</column>
+						<column src="REGROUPEMENT_10_MALADIE">REGROUPEMENT_10_MALADIE</column>
+						<column src="REGROUPEMENT_11_MALADIE">REGROUPEMENT_11_MALADIE</column>
+						<column src="REGROUPEMENT_12_MALADIE">REGROUPEMENT_12_MALADIE</column>
+						<column src="REGROUPEMENT_13_MALADIE">REGROUPEMENT_13_MALADIE</column>
+						<column src="REGROUPEMENT_14_MALADIE">REGROUPEMENT_14_MALADIE</column>
+						<column src="REGROUPEMENT_15_MALADIE">REGROUPEMENT_15_MALADIE</column>
+						<column src="REGROUPEMENT_16_MALADIE">REGROUPEMENT_16_MALADIE</column>
+						<column src="REGROUPEMENT_17_MALADIE">REGROUPEMENT_17_MALADIE</column>
+						<column src="REGROUPEMENT_18_MALADIE">REGROUPEMENT_18_MALADIE</column>
+						<column src="REGROUPEMENT_19_MALADIE">REGROUPEMENT_19_MALADIE</column>
+						<column src="REGROUPEMENT_20_MALADIE">REGROUPEMENT_20_MALADIE</column>
+						<column src="REGROUPEMENT_21_MALADIE">REGROUPEMENT_21_MALADIE</column>
+						<column src="REGROUPEMENT_22_MALADIE">REGROUPEMENT_22_MALADIE</column>
+						<column src="REGROUPEMENT_23_MALADIE">REGROUPEMENT_23_MALADIE</column>
+						<column src="REGROUPEMENT_24_MALADIE">REGROUPEMENT_24_MALADIE</column>
+						<column src="REGROUPEMENT_25_MALADIE">REGROUPEMENT_25_MALADIE</column>
+						<column src="REGROUPEMENT_26_MALADIE">REGROUPEMENT_26_MALADIE</column>
+						<column src="REGROUPEMENT_27_MALADIE">REGROUPEMENT_27_MALADIE</column>
+						<column src="REGROUPEMENT_28_MALADIE">REGROUPEMENT_28_MALADIE</column>
+						<column src="REGROUPEMENT_29_MALADIE">REGROUPEMENT_29_MALADIE</column>
+						<column src="REGROUPEMENT_30_MALADIE">REGROUPEMENT_30_MALADIE</column>
+						<column src="REGROUPEMENT_31_MALADIE">REGROUPEMENT_31_MALADIE</column>
+						<column src="REGROUPEMENT_32_MALADIE">REGROUPEMENT_32_MALADIE</column>
+						<column src="REGROUPEMENT_33_MALADIE">REGROUPEMENT_33_MALADIE</column>
+						<column src="REGROUPEMENT_34_MALADIE">REGROUPEMENT_34_MALADIE</column>
+						<column src="REGROUPEMENT_35_MALADIE">REGROUPEMENT_35_MALADIE</column>
+						<column src="REGROUPEMENT_36_MALADIE">REGROUPEMENT_36_MALADIE</column>
+						<column src="REGROUPEMENT_37_MALADIE">REGROUPEMENT_37_MALADIE</column>
+						<column src="REGROUPEMENT_38_MALADIE">REGROUPEMENT_38_MALADIE</column>
+						<column src="REGROUPEMENT_39_MALADIE">REGROUPEMENT_39_MALADIE</column>
+						<column src="REGROUPEMENT_40_MALADIE">REGROUPEMENT_40_MALADIE</column>
+						<column src="DATE_CREATION_VUE">DATE_CREATION_VUE</column>
+						<column src="HEURE_CREATION_VUE">HEURE_CREATION_VUE</column>
+						<column src="DATE_EFFECTIVE_VUE">DATE_EFFECTIVE_VUE</column>
+						<column src="FRANCHISE_COMMUNE_VUE">FRANCHISE_COMMUNE_VUE</column>
+						<column src="FRANCHISE_INDIVIDUELLE_VUE">FRANCHISE_INDIVIDUELLE_VUE</column>
+						<column src="FRANCHISE_ASSURE_CONTRAT_VUE">FRANCHISE_ASSURE_CONTRAT_VUE</column>
+						<column src="FRANCHISE_ASSURE_APPLIQUEE_VUE">FRANCHISE_ASSURE_APPLIQUEE_VUE</column>
+						<column src="FRANCHISE_FAMILLE_CONTRAT_VUE">FRANCHISE_FAMILLE_CONTRAT_VUE</column>
+						<column src="FRANCHISE_FAMILLE_APPLIQUEE_VUE">FRANCHISE_FAMILLE_APPLIQUEE_VUE</column>
+						<column src="FRANCHISE_COUPLE_CONTRAT_VUE">FRANCHISE_COUPLE_CONTRAT_VUE</column>
+						<column src="FRANCHISE_COUPLE_APPLIQUEE_VUE">FRANCHISE_COUPLE_APPLIQUEE_VUE</column>
+						<column src="FRANCHISE_MONO_CONTRAT_VUE">FRANCHISE_MONO_CONTRAT_VUE</column>
+						<column src="FRANCHISE_MONO_APPLIQUEE_VUE">FRANCHISE_MONO_APPLIQUEE_VUE</column>
+						<column src="REGROUPEMENT_01_VUE">REGROUPEMENT_01_VUE</column>
+						<column src="REGROUPEMENT_02_VUE">REGROUPEMENT_02_VUE</column>
+						<column src="REGROUPEMENT_03_VUE">REGROUPEMENT_03_VUE</column>
+						<column src="REGROUPEMENT_04_VUE">REGROUPEMENT_04_VUE</column>
+						<column src="REGROUPEMENT_05_VUE">REGROUPEMENT_05_VUE</column>
+						<column src="REGROUPEMENT_06_VUE">REGROUPEMENT_06_VUE</column>
+						<column src="REGROUPEMENT_07_VUE">REGROUPEMENT_07_VUE</column>
+						<column src="REGROUPEMENT_08_VUE">REGROUPEMENT_08_VUE</column>
+						<column src="REGROUPEMENT_09_VUE">REGROUPEMENT_09_VUE</column>
+						<column src="REGROUPEMENT_10_VUE">REGROUPEMENT_10_VUE</column>
+						<column src="AGE_MIN_COMPTE">AGE_MIN_COMPTE</column>
+						<column src="AGE_MAX_COMPTE">AGE_MAX_COMPTE</column>
+						<column src="MONTANT_MAX_REMBOURSABLE">MONTANT_MAX_REMBOURSABLE</column>
+						<column src="NB_MOIS_PAR_PERIODE">NB_MOIS_PAR_PERIODE</column>
+						<column src="TYPE_PERIODE">TYPE_PERIODE</column>
+						<column src="MONTANT_MAX_PAR_VISITE">MONTANT_MAX_PAR_VISITE</column>
+						<column src="NB_MAX_UNITE_OU_VISITE">NB_MAX_UNITE_OU_VISITE</column>
+						<column src="MONTANT_MAX_PAR_PERIODE">MONTANT_MAX_PAR_PERIODE</column>
+						<column src="FRANCHISE_F_N_TICKET">FRANCHISE_F_N_TICKET</column>
+						<column src="COASSURANCE_MALAIDE">COASSURANCE_MALAIDE</column>
+						<column src="TYPE_CHAMBRE">TYPE_CHAMBRE</column>
+						<column src="GENRE_PERIODE_A_OU_P">GENRE_PERIODE_A_OU_P</column>
+						<column src="RECOMMANDATION_MEDICALE">RECOMMANDATION_MEDICALE</column>
+						<column src="SourcePath">SourcePath</column>
+						<column src="LastModified">LastModified</column>
+						<column src="COMPTE_ORIGIN">COMPTE_ORIGIN</column>
+						<column src="New_or_old">New_or_old</column>
+					</columns>
+					<xcolumn></xcolumn>
+					<ycolumn></ycolumn>
+					<events>
+					</events>
+				</serie>
+			</display>
+		</displays>
+	</tile>
+	<tile title="newTile" guid="U5579E">
+		<sources>
+			<source name="" description="New Source">
+				<connection  datapath="" datatype="CSV" header="" includefilename="False" includeheader="False" includerowindex="False" previewmode="False" previewsize="0"/>
+			</source>
+		</sources>
+		<position top="7" left="338" width="276" height="163"/>
+		<displays current="0">
+			<display colorOfChanged="173,216,230">
+				<options></options>
+				<serie transparency="" axistype="Primary">
+					<type>grid</type>
+					<columns>
+					</columns>
+					<xcolumn></xcolumn>
+					<ycolumn></ycolumn>
+					<events>
+					</events>
+				</serie>
+			</display>
+			<control name = "ctrl_1" type="button" text="Create Xml file12" xposition="30" yposition="60" width="200" height="25" anchor="top|left" >
+				<collection sourcecolumn="" sortby="" sortorder="Ascending"></collection>
+				<events>
+					<event type="Statement">
+						<target>statement=UV_File12_EHC_Final.Caswil.ST.Xml;outputpath=../data/UnionVie/PO_23_ADD_DATE.xml;outputformat=xml</target>
+						<parameters></parameters>
+					</event>
+				</events>
+			</control>
+			<control name = "ctrl_2" type="button" text="Select all group class" xposition="300" yposition="60" width="200" height="25" anchor="top|left" >
+				<collection sourcecolumn="" sortby="" sortorder="Ascending"></collection>
+				<events>
+					<event type="Statement">
+						<target>statement=SELECT_GROUP_CLASS_SOURCE_SAMPLE.Caswil.ST.Xml;outputpath=../data/UnionVie/Selection_Groupe_Classe.csv;outputformat=csv</target>
+						<parameters></parameters>
+					</event>				
+				</events>
+			</control>
+		</displays>
+	</tile>
+	<currentParameters>[new_file]</currentParameters>
+</view>
+</caswilxml>

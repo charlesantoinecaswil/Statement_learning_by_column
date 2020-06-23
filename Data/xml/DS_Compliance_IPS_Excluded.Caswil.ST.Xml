@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<caswilxml xmlns:ns0="http://Caswil">
+<statement lastWritten="2018-07-18T09:39:12277">
+<sources>
+<source name="IPS" description="" stStyle="DS_Compliance_IPS_Excluded_IPS">
+<connection filename="xml\DS__Source_RiskDashboard_IPS_Last_NoDuplicates.Caswil.ST.Xml" type="Statement" header="" format="" headerIncluded="True" previewSize="0" previewMode="False" includeFilename="False" includeRowIndex="False" />
+</source>
+<source name="Overwrite" description="" stStyle="DS_Compliance_IPS_Excluded_Overwrite">
+<connection filename="xml\DS__Source_DataBind_Portfolios.Caswil.ST.Xml" type="Statement" header="" format="" headerIncluded="True" previewSize="0" previewMode="False" includeFilename="False" includeRowIndex="False" />
+</source>
+</sources>
+<columns>
+<column name="Portfolio_Name" visible="">
+<block  value="[IPS].[Portfolio_Name]" display="[IPS].[Portfolio_Name]"></block>
+</column>
+<column name="Accounts" visible="">
+<block  value="[IPS].[Accounts]" display="[IPS].[Accounts]"></block>
+<block  value="[Overwrite].[Accounts]" display="[Overwrite].[Accounts]"></block>
+
+</column>
+<column name="Portfolio_Overwrite" visible="">
+<block  value="[Overwrite].[Portfolio_Overwrite]" display="[Overwrite].[Portfolio_Overwrite]"></block>
+</column>
+</columns>
+<filters>
+<block  type="Filter" >
+<block  value="[Out].[Portfolio_Overwrite]" display="[Out].[Portfolio_Overwrite]"></block>
+<block  type="value"  value="&#60;&#62;" display="&#60;&#62;"></block>
+<block  type="value"  value=""></block>
+</block>
+<block  type="Filter" >
+<block  value="[Out].[Portfolio_Name]" display="[Out].[Portfolio_Name]"></block>
+<block  type="value"  value="&#60;&#62;" display="&#60;&#62;"></block>
+<block  type="value"  value=""></block>
+</block>
+</filters>
+<stStyles>
+	<stStyle name="DS_Compliance_IPS_Excluded_IPS">
+		<columns>
+			<column name="Portfolio_Name" visible="True" groupby="select">
+<block  value="[In].[Portfolio_Name]" display="[In].[Portfolio_Name]"></block>
+			</column>
+			<column name="Accounts" visible="True" groupby="multiline">
+<block  value="[In].[Accounts]" display="[In].[Accounts]"></block>
+			</column>
+		</columns>
+	</stStyle>
+</stStyles>
+<stStyles>
+	<stStyle name="DS_Compliance_IPS_Excluded_Overwrite">
+		<columns>
+			<column name="Portfolio_Overwrite" visible="True" groupby="select">
+<block  value="[In].[Portfolio_Overwrite]" display="[In].[Portfolio_Overwrite]"></block>
+			</column>
+			<column name="Accounts" visible="True" groupby="multiline">
+<block  value="[In].[Accounts]" display="[In].[Accounts]"></block>
+			</column>
+		</columns>
+	</stStyle>
+</stStyles>
+</statement>
+</caswilxml>
