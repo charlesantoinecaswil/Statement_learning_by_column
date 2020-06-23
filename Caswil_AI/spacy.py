@@ -9,18 +9,22 @@ from spacy.matcher import Matcher
 from spacy.pipeline import EntityRuler
 import spacy
 import random
+import pandas as pd
 import pickle
+
+from spacy.pipeline import TextCategorizer
+
 
 
 class column_finder():
 
-    def __init__(self, path_output, xml_path,max_length,pickle_path = 100):
+    def __init__(self, path_output, xml_path, pickle_path,max_length = 100):
 
         self.csv_output_path = path_output ## Les csv output dans le result folder
         self.xml_path = xml_path ## path des statement
         self.data_statement_dict = self.create_dictionnary()
         self.max_length = max_length ## Pas important présentement
-        self.picke_path = pickle_path
+        self.pickle_path = pickle_path
 
 
     def create_dictionnary(self):
@@ -66,6 +70,7 @@ class column_finder():
 
             return dict_value
 
+   
     def pattern_dict(self): ## On va créer un dictionnaire des patterns de valeurs. Les valeurs continuent numériques ne seront pas bien traitées
         
         dictionnaire_value = self.create_dictionnary()
@@ -91,7 +96,7 @@ class column_finder():
 
 
                 except ValueError:
-                    pattern.append({'LOWER': word})
+                    pattern.append({'LOWER': word.lower()})
 
             dict_pattern[column].append(pattern)
 
@@ -109,43 +114,25 @@ class column_finder():
 
                     try:
                         float(word)
-                        pattern.append({'IS_DIGIT': False})
+                        pattern.append({'IS_DIGIT': True})
 
 
                     except ValueError:
-                        pattern.append({'LOWER': word})
+                        pattern.append({'LOWER': word.lower()})
 
+                if pattern not in dict_pattern[column]:
                     dict_pattern[column].append(pattern)
 
         return dict_pattern
 
     def return_sentence_pattern(self, sentence):
-
+        nlp = spacy.blank("en")
         pattern_dict = self.pattern_dict()
         doc = nlp(sentence.replace(',',' '))
         dict_snswer = dict()
         dict_snswer['entities'] = list()
         for entities in pattern_dict.keys():
-            print(entities)
-            matcher = Matcher(nlp.vocab)
-            matcher.add(entities,pattern_dict[entities])
-            spans = [doc[start:end] for match_id, start, end in matcher(doc)]
-            entitie = [(span.start_char, span.end_char, entities) for span in spans]
-            dict_snswer['entities'] += (entitie)
-
-        return dict_snswer
-
-
-
-    def return_sentence_pattern(self, sentence):
-
-        pattern_dict = self.pattern_dict()
-        sentence = sentence.lower()
-        doc = nlp(sentence.replace(',',' '))
-        dict_snswer = dict()
-        dict_snswer['entities'] = list()
-        for entities in pattern_dict.keys():
-            print(entities)
+            
             matcher = Matcher(nlp.vocab)
             matcher.add(entities,pattern_dict[entities])
             spans = [doc[start:end] for match_id, start, end in matcher(doc)]
@@ -153,84 +140,139 @@ class column_finder():
             dict_snswer['entities'] += (entitie)
 
 
-        save_observation(sentence)
-        return dict_snswer
+        clean_dict = dict()
+        clean_dict['entities'] = list()
+
+        all_overlap = list()
+        
 
 
+        for ent in dict_snswer['entities']:
+            list_of_overlap = list()
+            list_of_overlap.append(ent)
+            
+            for ent2 in dict_snswer['entities']:
 
-    def save_observation(self, sentence,new_dict):
+                if ent == ent2:
+                    continue
+                
+                
+                entrange = set(range(ent[0],ent[1]))
+                ent2range = set(range(ent2[0],ent2[1]))
+                if len(entrange.intersection(ent2range)) != 0: 
+                    list_of_overlap.append(ent2)
+
+           
+                
+            all_overlap.append((list_of_overlap))
+
+            
+        clean_overlap = list()
+
+
+        for index1,i in enumerate(all_overlap):
+           
+            if  not (set(i) in [set(j) for j in clean_overlap]):
+
+                clean_overlap.append(i)
+
+        
+       
+
+        for list_of_overlap in clean_overlap:
+                               
+            for index, element in enumerate(list_of_overlap):
+                print(index, doc.text[element[0]:element[1]], element[2])
+            choice = int(input('Choose the right element'))
+            clean_dict['entities'].append(list_of_overlap[choice])
+                
+        self.save_observation(doc.text,clean_dict)
+        
+        
+        return clean_dict
+
+
+    def save_observation(self, sentence, new_dict):
 
         try:
-            file = open(self.picke_path,'rb')
+            file = open(self.pickle_path,'rb')
 
             train_data_complet = pickle.load(file)
             train_data_complet.append((sentence, new_dict))
 
             file.close()
         except FileNotFoundError:
-            train_data_complet = [(sentence, new_dict)
+
+            train_data_complet = [(sentence, new_dict)]
 
 
-        file = open(self.picke_path,'wb')
+        file = open(self.pickle_path,'wb')
 
         pickle.dump(train_data_complet,file)
 
         file.close()
 
 
+    def create_training_data(self, list_of_sentence):
+        TRAINING_DATA = list()
 
-User.return_sentence_pattern('I coca-cola the value of USD equity for the client 45')
+        for sentence in list_of_sentence:
+            print(sentence)
+            dict_ent = self.return_sentence_pattern(sentence)
+            
+            
+            print('Ratio : 0')
+            print('Select : 1')
+            choice = input('Select 0 or 1')
+            dict_ent['cats'] = dict()
+            if choice == 0 :
+                dict_ent['cats']['Ratio'] = True
+                dict_ent['cats']['Select'] = False
+            else:
+                dict_ent['cats']['Ratio'] = False
+                dict_ent['cats']['Select'] = True
+            
 
-
-
-
-new_dict1 = {'test':1}
-new_dict2 = {'test':2}
-
-
-try:
-    file = open(pickle_path,'rb')
-    full_data = pickle.load(file)
-    file.close()
-    full_data.append(new_dict2)
-
-except FileNotFoundError:
-    full_data = [new_dict1]
-
-
-file = open(pickle_path,'wb')
-pickle.dump(full_data,file)
-file.close()
-
-
-file = open(pickle_path,'rb')
-
-full_data = pickle.load(file)
+            
+            TRAINING_DATA.append((sentence,dict_ent))
 
 
+        return TRAINING_DATA
 
 
+    def create_model(self, data):
 
-        
+        nlp = spacy.blank("en")
+        ner = nlp.create_pipe("ner")
+        textcat = nlp.create_pipe("textcat")
 
-
-
-                    
-
-
-
-
+        nlp.add_pipe(ner)
+        nlp.add_pipe(textcat)
 
 
 
 
 path_output = 'C:\\Users\\Charles-Antoine Pare\\Documents\\AI_Package_Ratio\\AI_Package_Ratio\\app\\result'
 xml_path = 'C:\\Users\\Charles-Antoine Pare\\Documents\\AI_Package_Ratio\\AI_Package_Ratio\\app\\xml'
-pickle_path = 'C:\\Users\\Charles-Antoine Pare\\Documents\\AI_Package_Ratio\\AI_Package_Ratio\\test.pkl'
-User = column_finder(path_output, xml_path)
-User.create_dictionnary()
-test = User.pattern_dict()
-User.return_sentence_pattern('I coca-cola the value of USD equity for the client 45')
+json_path = 'C:\\Users\\Charles-Antoine Pare\\Documents\\AI_Package_Ratio\\AI_Package_Ratio\\tt.pkl'
+User = column_finder(path_output, xml_path,json_path)
+a = User.create_dictionnary()
+User.return_sentence_pattern('')
+
+TEXTS = ['I want the value of CAD equity for the client 45', 'Give me all my CAD fixed income for all my clients', 'I want to see client 90 portfolio', 'What are the investement in mutual funds for client 344', 'what are the differences between client 31 and client 98', 'I want all the clients with more USD equity than CAD', 'Give me the USD', 'Give me the equity', 'What is the financial ratio in the Eq Us - PIM?', 'What is the utilities ratio in the Eq Intl model?', 'How much in percentage is allocated in the Health Care sector in every accounts part of the eq intl model?']
+DATA = User.create_training_data(TEXTS)
+
+
+
+
+
+
+
+
+
+
+
+
 
 patternaccountname = [{"LOWER": "client"}, {"IS_DIGIT": True}]
 patternaccountname1 = [{"LOWER": "client"}, {"IS_DIGIT": False}]
@@ -238,7 +280,7 @@ patternaccountname2 = [{"LOWER": "clients"}, {"IS_DIGIT": False}]
 patterncurrency1 = [{"LOWER": "eur"}]
 patterncurrency2 = [{"LOWER": "cad"}]
 patterncurrency3 = [{"LOWER": "usd"}]
-patterncurrency4 = [{"LOWER": "a2d"}]
+patterncurrency4 = [{"LOWER": "aud"}]
 patternAssetClass1 = [{"LOWER": "cash"},{"LOWER": "and"},{"LOWER": "cash"},{"LOWER": "equivalents"}]
 patternAssetClass2 = [{"LOWER": "equity"}]
 patternAssetClass3 = [{"LOWER": "fixed"}, {"LOWER": "income"}]
@@ -249,12 +291,17 @@ patterSector3 = [{"LOWER": "federal"}, {"LOWER": "government"}]
 
 pattern_list = {'accountname':[patternaccountname,patternaccountname1,patternaccountname2],'currency':[patterncurrency1,patterncurrency2,patterncurrency3,patterncurrency4],'AssetClass':[patternAssetClass1,patternAssetClass2,patternAssetClass3,patternAssetClass4],'Sector':[patterSector1, patterSector2, patterSector3]}
 
-TEXTS = ['I want the value of A2D equity for the client 45', 'Give me all my CAD fixed income for all my clients', 'I want to see client 90 portfolio', 'What are the investement in mutual funds for client 344', "what are the differences between client 31 and client 98",'I want all the clients with more USD equity than CAD','Give me the USD','Give me the equity']
+TEXTS = ['I want the value of CAD equity for the client 45', 'Give me all my CAD fixed income for all my clients', 'I want to see client 90 portfolio', 'What are the investement in mutual funds for client 344', "what are the differences between client 31 and client 98",'I want all the clients with more USD equity than CAD','Give me the USD','Give me the equity']
 TEXTS = [i.lower() for i in TEXTS]
 
-nlp = English()
+a.keys()
+nlp = spacy.load('en_core_web_sm')
 matcher = Matcher(nlp.vocab)
-doc = nlp('je veux le prix en USD deplus de 2000 dollars')
+doc = nlp('I want to see client 90 portfolio')
+options = {"compact": True, "bg": "#09a3d5",
+           "color": "white", "font": "Source Sans Pro"}
+spacy.displacy.serve(doc, style="dep", options=options)
+spacy.displacy.serve(doc, style='dep')
 
 
 TRAINING_DATA = dict()
@@ -299,31 +346,37 @@ matches = matcher(doc.tex)
 
 nlp = spacy.blank("en")
 ner = nlp.create_pipe("ner")
+textcat = nlp.create_pipe("textcat")
 nlp.add_pipe(ner)
-ner.add_label("accountname")
+nlp.add_pipe(textcat)
+ner.add_label("AccountName")
 ner.add_label("currency")
 ner.add_label("AssetClass")
 ner.add_label("Sector")
+ner.add_label("Base_Currency_Code")
+ner.add_label("TacClassification")
+textcat.add_label('Select')
+textcat.add_label('Ratio')
 
 nlp.begin_training()
 
 # Loop for 10 iterations
 for itn in range(40):
     # Shuffle the training data
-    random.shuffle(TRAINING_DATA)
+    random.shuffle(DATA)
     losses = {}
 
     # Batch the examples and iterate over them
-    for batch in spacy.util.minibatch(TRAINING_DATA, size=2):
+    for batch in spacy.util.minibatch(DATA, size=2):
         texts = [text for text, entities in batch]
         annotations = [entities for text, entities in batch]
 
         # Update the model
         nlp.update(texts, annotations, losses=losses)
+        nlp.update(texts, annotations, losses=losses)
     print(losses)
 
 
-doc = nlp('I want the value of vsd EQUITY for the client 45'.lower())
-
-for ent in doc.ents:
-    print(ent.text, ent.start_char, ent.end_char, ent.label_)
+test_text = 'I want the ratio of usd equity over all equity'
+doc = nlp(test_text)
+print(test_text, doc.cats,doc.ents)
