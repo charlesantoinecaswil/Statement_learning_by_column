@@ -1,0 +1,146 @@
+
+
+<MainWindow>:
+
+    submit:submit
+    question:question
+
+    name:'main'
+    FloatLayout:
+
+        Button:
+            pos_hint: {'x':0.36, 'top':0.48}
+            size_hint: 0.28, 0.08
+            text: 'Search'
+            id:submit
+            on_press:root.generate()
+            on_release:
+                app.root.current='second'
+                app.root.screens[1].INFO(root.ids.question.text,0)
+
+        TextInput:
+            pos_hint: {'x':0.15, 'top':0.58}
+            size_hint: 0.7, 0.08
+            id:question
+
+        Image:
+            source:'App\Caswil_Logo_Landscape_WS_en.png'
+            pos_hint: {'x':0.38, 'top':0.7}
+            size_hint: 0.23, 0.1
+            allow_stretch: True
+            keep_ratio: False
+            multiline: False
+            font_size: 70
+
+
+
+
+<SecondWindow>
+
+    name:'second'
+    negative_answer:negative_answer
+    positive_answer:positive_answer
+    result:result
+
+
+    FloatLayout:
+
+        Label:
+            pos_hint:{'x':0.21, 'top':0.83}
+            size_hint:0.2,0.1
+            text: 'Do you want to :'
+            halign: 'left'
+
+
+        Label:
+            pos_hint:{'x':0.21, 'top':0.63}
+            size_hint:0.4,0.1
+            text:
+            halign: 'left'
+            id:result
+
+        Button:
+
+            pos_hint:{'x':0.21, 'top':0.43}
+            size_hint: 0.28, 0.08
+            text: 'Yes'
+            id:positive_answer
+            on_press:
+
+                if result.text == 'Go back to search screen': \
+                root.manager.current = 'main'
+
+                else: \
+                root.next_question()
+
+        Button:
+
+            pos_hint:{'x':0.50, 'top':0.43}
+            size_hint: 0.28, 0.08
+            text: 'No'
+            id:negative_answer
+            on_release:
+                app.root.current='third'
+                app.root.screens[2].generate_statement(root.User.Y)
+
+
+        
+<ThirdWindow>
+
+    name:'third'
+    statement:statement
+    selected_file:selected_file
+    parameter_grid:parameter_grid
+    main_page:main_page
+
+    FloatLayout:
+        id:main_page
+
+        ScrollView:
+            size_hint:0.4,0.3
+            pos_hint:{'x':0.01, 'top':0.74}
+            GridLayout:
+                cols:1
+                orientation: "vertical"
+                height: self.minimum_height
+                row_default_height: 30
+                size_hint_y: None
+                id:statement
+
+
+        Button:
+
+            pos_hint:{'x':0, 'top':1}
+            size_hint: 0.28, 0.08
+            text: 'Go back to search'
+            on_release:
+                app.root.current='main'
+                
+
+        Label:
+            pos_hint:{'x':0.20, 'top':0.9}
+            size_hint:0.4,0.1
+            text:
+            halign: 'left'
+            id:selected_file
+
+        Label:
+            pos_hint:{'x':0.0, 'top':0.9}
+            size_hint:0.2,0.1
+            text: 'You want to open : '
+            halign: 'left'
+
+
+        ScrollView:
+            pos_hint: {'x':0.01, 'top':0.3}
+            size_hint: 0.3, 0.5
+            GridLayout:
+                orientation: "vertical"
+                height: self.minimum_height
+                row_default_height: 30
+                size_hint_y: None
+                id:parameter_grid
+                cols:2
+            
+
+        

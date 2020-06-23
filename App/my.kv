@@ -1,0 +1,222 @@
+WindowManager:
+
+    MainWindow:
+    SecondWindow:
+    
+    
+
+
+
+<MainWindow>:
+
+    submit:submit
+    question:question
+    result:result
+    null_result:null_result
+    file_to_open:file_to_open
+    file_selected:file_selected
+    parameter_grid:parameter_grid
+    
+    
+    name:'main'
+    FloatLayout:
+        GridLayout:
+            cols:1
+            id: file_to_open
+            pos_hint: {'x':0.75, 'top':0.74}
+            size_hint: 0.2, 0.1
+            GridLayout:
+                size_hint: 1, 0.5
+                cols:2
+                Button:
+                    text: 'Preview'
+                    on_release:
+                        
+                        app.root.current='second'
+                        app.root.screens[1].INFO(root.ids.file_selected.text)
+                    
+
+                Button:
+                    text: 'Open'
+                    on_press:root.open_file()
+
+            Label:
+                text:'No file Selected'
+                id:file_selected
+
+        Label:
+            pos_hint: {'x':0.7, 'top':0.6}
+            size_hint: 0.2, 0.08
+            text: 'Parameters;'
+
+        GridLayout:
+            id:parameter_grid
+            pos_hint: {'x':0.7, 'top':0.55}
+            size_hint: 0.3, 0.5
+            cols:2
+
+
+
+
+
+        Button:
+            pos_hint: {'x':0.71, 'top':0.9}
+            size_hint: 0.28, 0.08
+            text: 'Search'
+            id:submit
+            on_press:root.generate()
+
+        Button:
+            pos_hint: {'x':0.28, 'top':0.99}
+            size_hint: 0.28, 0.08
+            text: 'Create New META_META.xlsx'
+            on_press:root.new_xlsx()
+
+        
+
+        TextInput:
+            pos_hint: {'x':0.01, 'top':0.9}
+            size_hint: 0.7, 0.08
+            id:question
+
+        Image:
+            source:'Other\Caswil_Logo_Landscape_WS_en.png'
+            pos_hint: {'left':1, 'top':1}
+            size_hint: 0.23, 0.1
+            allow_stretch: True
+            keep_ratio: False
+            multiline: False
+            font_size: 70
+
+        Label:
+            pos_hint:{'x':0.21, 'top':0.83}
+            size_hint:0.3,0.1
+            text: 'Related Statement order by relevance;'
+
+        Label:
+            pos_hint:{'x':0.21, 'top':0.44}
+            size_hint:0.3,0.1
+            text: 'Non-Relevant Statement;'
+
+        ScrollView:
+            size_hint:0.7,0.3
+            pos_hint:{'x':0.01, 'top':0.74}
+            GridLayout:
+                cols:1
+                orientation: "vertical"
+                height: self.minimum_height
+                row_default_height: 30
+                size_hint_y: None
+                id:result
+
+
+        ScrollView:
+            size_hint:0.7,0.34
+            pos_hint:{'left':0.01, 'top':0.35}
+            GridLayout:
+                cols:1
+                orientation: "vertical"
+                height: self.minimum_height
+                row_default_height: 30
+                size_hint_y: None
+                id: null_result 
+      
+            
+                         
+
+        
+        
+<SecondWindow>:
+    name:'second'
+    source_scroll:source_scroll
+    source:source
+    columns_scroll:columns_scroll
+    columns:columns
+    scroll_real_source:scroll_real_source
+    real_source:real_source
+    current_statement:current_statement
+    
+    
+
+    FloatLayout:
+
+        Button:
+            size_hint:0.2,0.1
+            pos_hint:{'left':0.01, 'top':0.99}
+            text: 'Go back'
+            on_release:
+                        
+                app.root.current='main'
+            
+        
+
+        Label:
+            size_hint:0.2,0.07
+            pos_hint:{'x':0.1, 'top':0.9}
+            id:current_statement
+            text: 'root.manager.screens[0].ids.file_selected.text'
+
+        Label:
+            size_hint:0.2,0.07
+            pos_hint:{'left':0.7, 'top':0.9}
+            text:''
+
+        Label:
+            size_hint:0.2,0.07
+            pos_hint:{'left':0.1, 'top':0.80}
+            text:'Connections'
+
+        ScrollView:
+            size_hint:0.6,0.15
+            pos_hint:{'x':0.3, 'top':0.80}
+            id:source_scroll
+            do_scroll_x: False
+            do_scroll_y: True
+            Label:
+                id:source
+                text:''
+
+                    
+        Label:
+            size_hint:0.2,0.07
+            pos_hint:{'left':0.1, 'top':0.60}
+            text:'Columns'
+
+        ScrollView:
+            size_hint:0.6,0.25
+            pos_hint:{'x':0.3, 'top':0.60}
+            do_scroll_x: False
+            do_scroll_y: True
+            id:columns_scroll
+            Label:
+                size_hint_y: None
+                height: self.texture_size[1]
+                
+                text:''
+                id:columns
+                
+               
+
+        Label:
+            size_hint:0.2,0.07
+            pos_hint:{'left':0.1, 'top':0.3}
+            text:'Non-Statement Source'
+
+        ScrollView:
+            size_hint:0.6,0.30
+            pos_hint:{'x':0.3, 'top':0.30}
+            do_scroll_x: False
+            do_scroll_y: True
+            id:scroll_real_source
+            Label:
+                size_hint_y: None
+                height: self.texture_size[1]
+                id:real_source
+               
+                text:''
+                
+
+
+
+            
+    
