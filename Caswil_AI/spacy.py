@@ -225,7 +225,7 @@ class column_finder():
             print('Select : 1')
             choice = input('Select 0 or 1')
             dict_ent['cats'] = dict()
-            if choice == 0 :
+            if int(choice) == 0 :
                 dict_ent['cats']['Ratio'] = True
                 dict_ent['cats']['Select'] = False
             else:
@@ -240,14 +240,64 @@ class column_finder():
         return TRAINING_DATA
 
 
-    def create_model(self, data):
+    def create_model(self):
 
-        nlp = spacy.blank("en")
-        ner = nlp.create_pipe("ner")
-        textcat = nlp.create_pipe("textcat")
+        self.nlp = spacy.blank("en")
+        ner = self.nlp.create_pipe("ner")
+        textcat = self.nlp.create_pipe("textcat")
+        dict_tmp = self.create_dictionnary()
 
-        nlp.add_pipe(ner)
-        nlp.add_pipe(textcat)
+
+        self.nlp.add_pipe(ner)
+        self.nlp.add_pipe(textcat)
+
+        for column in dict_tmp.keys():
+            ner.add_label(column)
+
+
+        textcat.add_label('Select')
+        textcat.add_label('Ratio')
+
+
+    def train_model(self, TRAINING_DATA):
+
+        self.nlp.begin_training()
+
+        for itn in range(40):
+    # Shuffle the training data
+            random.shuffle(DATA)
+            losses = {}
+
+    # Batch the examples and iterate over them
+            for batch in spacy.util.minibatch(DATA, size=2):
+                texts = [text for text, entities in batch]
+                annotations = [entities for text, entities in batch]
+
+        # Update the model
+                self.nlp.update(texts, annotations, losses=losses)
+                self.nlp.update(texts, annotations, losses=losses)
+            print(losses)
+
+
+    def guess_sentence(self, sentence):
+
+        doc = self.nlp(sentence)
+
+
+        print(doc.text,doc.cats)
+        print("Entities", [(ent.text, ent.label_) for ent in doc.ents])
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -263,121 +313,13 @@ User.return_sentence_pattern('')
 TEXTS = ['I want the value of CAD equity for the client 45', 'Give me all my CAD fixed income for all my clients', 'I want to see client 90 portfolio', 'What are the investement in mutual funds for client 344', 'what are the differences between client 31 and client 98', 'I want all the clients with more USD equity than CAD', 'Give me the USD', 'Give me the equity', 'What is the financial ratio in the Eq Us - PIM?', 'What is the utilities ratio in the Eq Intl model?', 'How much in percentage is allocated in the Health Care sector in every accounts part of the eq intl model?']
 DATA = User.create_training_data(TEXTS)
 
+User.create_model()
+User.train_model(DATA)
+
+
+User.guess_sentence('I want the value of CAD equity for the client 45')
+User.guess_sentence('What is the financial ratio in the Eq Us model?')
 
 
 
 
-
-
-
-
-
-
-
-
-patternaccountname = [{"LOWER": "client"}, {"IS_DIGIT": True}]
-patternaccountname1 = [{"LOWER": "client"}, {"IS_DIGIT": False}]
-patternaccountname2 = [{"LOWER": "clients"}, {"IS_DIGIT": False}]
-patterncurrency1 = [{"LOWER": "eur"}]
-patterncurrency2 = [{"LOWER": "cad"}]
-patterncurrency3 = [{"LOWER": "usd"}]
-patterncurrency4 = [{"LOWER": "aud"}]
-patternAssetClass1 = [{"LOWER": "cash"},{"LOWER": "and"},{"LOWER": "cash"},{"LOWER": "equivalents"}]
-patternAssetClass2 = [{"LOWER": "equity"}]
-patternAssetClass3 = [{"LOWER": "fixed"}, {"LOWER": "income"}]
-patternAssetClass4 = [{"LOWER": "alternative"}, {"LOWER": "investments"}]
-patterSector1 = [{"LOWER": "mutual"}, {"LOWER": "funds"}]
-patterSector2 = [{"LOWER": "hedge"}, {"LOWER": "funds"}]
-patterSector3 = [{"LOWER": "federal"}, {"LOWER": "government"}]
-
-pattern_list = {'accountname':[patternaccountname,patternaccountname1,patternaccountname2],'currency':[patterncurrency1,patterncurrency2,patterncurrency3,patterncurrency4],'AssetClass':[patternAssetClass1,patternAssetClass2,patternAssetClass3,patternAssetClass4],'Sector':[patterSector1, patterSector2, patterSector3]}
-
-TEXTS = ['I want the value of CAD equity for the client 45', 'Give me all my CAD fixed income for all my clients', 'I want to see client 90 portfolio', 'What are the investement in mutual funds for client 344', "what are the differences between client 31 and client 98",'I want all the clients with more USD equity than CAD','Give me the USD','Give me the equity']
-TEXTS = [i.lower() for i in TEXTS]
-
-a.keys()
-nlp = spacy.load('en_core_web_sm')
-matcher = Matcher(nlp.vocab)
-doc = nlp('I want to see client 90 portfolio')
-options = {"compact": True, "bg": "#09a3d5",
-           "color": "white", "font": "Source Sans Pro"}
-spacy.displacy.serve(doc, style="dep", options=options)
-spacy.displacy.serve(doc, style='dep')
-
-
-TRAINING_DATA = dict()
-
-for entities in pattern_list.keys():
-    matcher = Matcher(nlp.vocab)
-    matcher.add(entities,pattern_list[entities])
-# Create a Doc object for each text in TEXTS
-    for doc in nlp.pipe(TEXTS):
-        TRAINING_DATA[doc.text] = dict()
-
-        for entities in pattern_list.keys():
-            matcher = Matcher(nlp.vocab)
-            matcher.add(entities,pattern_list[entities])
-            # Match on the doc and create a list of matched spans
-            spans = [doc[start:end] for match_id, start, end in matcher(doc)]
-            # Get (start character, end character, label) tuples of matches
-            entities = [(span.start_char, span.end_char, entities) for span in spans]
-            # Format the matches as a (doc.text, entities) tuple
-            training_example = (doc.text, {"entities": entities})
-            # Append the example to the training data
-            try:
-                TRAINING_DATA[doc.text]['entities'] += (entities)
-
-            except KeyError:
-                TRAINING_DATA[doc.text]['entities'] = list()
-                TRAINING_DATA[doc.text]['entities'] += (entities)
-
-matcher._patterns
-TRAINING_DATA = list(TRAINING_DATA.items())
-
-doc.label_
-
-def on_match(matcher, doc, id, matches):
-      print('Matched!', matches,id,matcher,doc)
-
-matcher = Matcher(nlp.vocab)
-matcher.add("HelloWorld", on_match, [{"LOWER": "hello"}, {"LOWER": "world"}])
-matcher.add("GoogleMaps", on_match, [{"ORTH": "Google"}, {"ORTH": "Maps"}])
-doc = nlp("HELLO WORLD on Google Maps.")
-matches = matcher(doc.tex)
-
-nlp = spacy.blank("en")
-ner = nlp.create_pipe("ner")
-textcat = nlp.create_pipe("textcat")
-nlp.add_pipe(ner)
-nlp.add_pipe(textcat)
-ner.add_label("AccountName")
-ner.add_label("currency")
-ner.add_label("AssetClass")
-ner.add_label("Sector")
-ner.add_label("Base_Currency_Code")
-ner.add_label("TacClassification")
-textcat.add_label('Select')
-textcat.add_label('Ratio')
-
-nlp.begin_training()
-
-# Loop for 10 iterations
-for itn in range(40):
-    # Shuffle the training data
-    random.shuffle(DATA)
-    losses = {}
-
-    # Batch the examples and iterate over them
-    for batch in spacy.util.minibatch(DATA, size=2):
-        texts = [text for text, entities in batch]
-        annotations = [entities for text, entities in batch]
-
-        # Update the model
-        nlp.update(texts, annotations, losses=losses)
-        nlp.update(texts, annotations, losses=losses)
-    print(losses)
-
-
-test_text = 'I want the ratio of usd equity over all equity'
-doc = nlp(test_text)
-print(test_text, doc.cats,doc.ents)

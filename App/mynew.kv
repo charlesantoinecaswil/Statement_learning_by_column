@@ -13,7 +13,6 @@
             size_hint: 0.28, 0.08
             text: 'Search'
             id:submit
-            on_press:root.generate()
             on_release:
                 app.root.current='second'
                 app.root.screens[1].INFO(root.ids.question.text,0)
@@ -24,7 +23,7 @@
             id:question
 
         Image:
-            source:'App\Caswil_Logo_Landscape_WS_en.png'
+            source:'Caswil_Logo_Landscape_WS_en.png'
             pos_hint: {'x':0.38, 'top':0.7}
             size_hint: 0.23, 0.1
             allow_stretch: True
