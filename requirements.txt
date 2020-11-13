@@ -15,6 +15,6 @@ Kivy==1.11.1
 spacy==2.0.9
 Keras==2.3.1
 keras==2.3.1
-Tensorflow==2.1.0
+Tensorflow==2.3.1
 tensorflow==2.1.0
 
