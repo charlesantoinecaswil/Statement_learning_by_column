@@ -7,7 +7,7 @@ openpyxl==3.0.3
 xlrd==1.2.0
 scikit_learn==0.22.2.post1
 pypiwin32==223
-Pygments==2.6.1
+Pygments==2.7.4
 docutils==0.16
 kivy_deps.sdl2==0.1.23
 kivy_deps.glew==0.1.12
